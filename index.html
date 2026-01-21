@@ -149,6 +149,23 @@
                 <div class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
+                        <div class="company-header">
+                            <img src="https://media.licdn.com/dms/image/C4E0BAQGBm5qNFCjqZw/company-logo_400_400/0/1630699332711?e=2147483647&v=b&t=kK9V1JzuHz5E0rp_Pg8G8e4x5Hp5vwI_V8bm_6qlLqY" alt="Algoleap Technologies" class="company-logo">
+                            <div>
+                                <h3>Intern</h3>
+                                <p class="company">Algoleap Technologies</p>
+                            </div>
+                        </div>
+                        <p class="date">Jan 2026 - Present</p>
+                        <p class="description">
+                            Contributed to software development projects and gained experience in professional coding practices and team collaboration.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
                         <h3>AI - Data Quality Analyst</h3>
                         <p class="company">Rooman Technologies</p>
                         <p class="date">Feb 2025 - May 2025</p>
@@ -181,6 +198,18 @@
                         </p>
                     </div>
                 </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>10th Grade</h3>
+                        <p class="company">Accord School, Tirupati</p>
+                        <p class="date">2018 - 2019</p>
+                        <p class="description">
+                            Percentage: 64%
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <h2 class="section-title" style="margin-top: 3rem;">Certifications</h2>
@@ -205,25 +234,52 @@
     <section id="contact" class="section">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
-            <p class="contact-subtitle">Let's connect! Feel free to reach out through any of the following channels.</p>
+            <p class="contact-subtitle">Send me a message and I'll get back to you soon!</p>
             
-            <div class="contact-methods">
-                <a href="mailto:dhanushmuvva@gmail.com" class="contact-item">
-                    <span class="icon">📧</span>
-                    <span class="text">dhanushmuvva@gmail.com</span>
-                </a>
-                <a href="tel:+917329995385" class="contact-item">
-                    <span class="icon">📱</span>
-                    <span class="text">+91 7329995385</span>
-                </a>
-                <a href="https://linkedin.com" target="_blank" class="contact-item">
-                    <span class="icon">💼</span>
-                    <span class="text">LinkedIn</span>
-                </a>
-                <a href="https://github.com" target="_blank" class="contact-item">
-                    <span class="icon">🐙</span>
-                    <span class="text">GitHub</span>
-                </a>
+            <div class="contact-container">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <p id="formStatus" class="form-status"></p>
+                </form>
+
+                <div class="contact-methods">
+                    <a href="mailto:dhanushmuvva@gmail.com" class="contact-item">
+                        <span class="icon">📧</span>
+                        <span class="text">dhanushmuvva@gmail.com</span>
+                    </a>
+                    <a href="tel:+917329995385" class="contact-item">
+                        <span class="icon">📱</span>
+                        <span class="text">+91 7329995385</span>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="contact-item">
+                        <span class="icon">💼</span>
+                        <span class="text">LinkedIn</span>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="contact-item">
+                        <span class="icon">🐙</span>
+                        <span class="text">GitHub</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>

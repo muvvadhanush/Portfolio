@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
+const fs = require('fs');
 require('dotenv').config();
 
 const app = express();
@@ -14,20 +15,30 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname)));
 
+// Track MongoDB connection status
+let mongoConnected = false;
+
 // MongoDB Connection String
 const mongoURI = 'mongodb+srv://muvvadhanush007_db_user:1M0uBk6O2OvcKjOe@cluster0.1co2px1.mongodb.net/?appName=Cluster0';
 
-// Connect to MongoDB
+// Connect to MongoDB with timeout settings
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 5000,
+    socketTimeoutMS: 45000,
+    connectTimeoutMS: 10000,
+    retryWrites: true,
 })
 .then(() => {
+    mongoConnected = true;
     console.log('✓ Connected to MongoDB');
 })
 .catch((err) => {
-    console.error('✗ MongoDB connection error:', err.message);
-    process.exit(1);
+    mongoConnected = false;
+    console.warn('⚠ MongoDB connection warning:', err.message);
+    console.warn('ℹ Using local file storage as fallback');
+    console.warn('ℹ To fix: Whitelist your IP at https://cloud.mongodb.com → Security → Network Access');
 });
 
 // Define Contact Message Schema
@@ -61,6 +72,42 @@ const contactSchema = new mongoose.Schema({
 // Create Contact Model
 const Contact = mongoose.model('Contact', contactSchema);
 
+// Local file storage for contacts (fallback)
+const contactsFilePath = path.join(__dirname, 'contacts.json');
+
+function saveToLocalFile(contactData) {
+    try {
+        let contacts = [];
+        if (fs.existsSync(contactsFilePath)) {
+            const fileData = fs.readFileSync(contactsFilePath, 'utf8');
+            contacts = JSON.parse(fileData);
+        }
+        contacts.push({
+            ...contactData,
+            createdAt: new Date().toISOString(),
+            _id: Date.now().toString(),
+        });
+        fs.writeFileSync(contactsFilePath, JSON.stringify(contacts, null, 2));
+        return true;
+    } catch (error) {
+        console.error('Error saving to local file:', error.message);
+        return false;
+    }
+}
+
+function getLocalContacts() {
+    try {
+        if (fs.existsSync(contactsFilePath)) {
+            const fileData = fs.readFileSync(contactsFilePath, 'utf8');
+            return JSON.parse(fileData);
+        }
+        return [];
+    } catch (error) {
+        console.error('Error reading local file:', error.message);
+        return [];
+    }
+}
+
 // Routes
 
 // Serve static files
@@ -90,24 +137,47 @@ app.post('/api/contact', async (req, res) => {
             });
         }
 
-        // Create new contact document
-        const newContact = new Contact({
-            name,
-            email,
-            subject,
-            message,
-        });
+        const contactData = { name, email, subject, message };
 
-        // Save to MongoDB
-        await newContact.save();
-
-        console.log(`✓ Message saved from ${name} (${email})`);
-
-        res.status(201).json({
-            success: true,
-            message: 'Your message has been sent successfully!',
-            data: newContact,
-        });
+        // Try MongoDB first, fallback to local file
+        if (mongoConnected) {
+            try {
+                const newContact = new Contact(contactData);
+                await newContact.save();
+                console.log(`✓ Message saved to MongoDB from ${name} (${email})`);
+                
+                res.status(201).json({
+                    success: true,
+                    message: 'Your message has been sent successfully!',
+                    data: newContact,
+                });
+            } catch (mongoError) {
+                console.error('MongoDB save error:', mongoError.message);
+                // Fall back to local file
+                const saved = saveToLocalFile(contactData);
+                if (saved) {
+                    console.log(`✓ Message saved to local storage from ${name} (${email})`);
+                    res.status(201).json({
+                        success: true,
+                        message: 'Your message has been saved (offline mode)!',
+                    });
+                } else {
+                    throw mongoError;
+                }
+            }
+        } else {
+            // Use local file storage
+            const saved = saveToLocalFile(contactData);
+            if (saved) {
+                console.log(`✓ Message saved to local storage from ${name} (${email})`);
+                res.status(201).json({
+                    success: true,
+                    message: 'Your message has been saved (offline mode)!',
+                });
+            } else {
+                throw new Error('Failed to save message');
+            }
+        }
     } catch (error) {
         console.error('Error saving contact message:', error.message);
         res.status(500).json({
@@ -121,11 +191,24 @@ app.post('/api/contact', async (req, res) => {
 // API endpoint to get all contact messages (optional, for admin)
 app.get('/api/contact/all', async (req, res) => {
     try {
-        const contacts = await Contact.find().sort({ createdAt: -1 });
+        let contacts = [];
+
+        if (mongoConnected) {
+            try {
+                contacts = await Contact.find().sort({ createdAt: -1 });
+            } catch (error) {
+                console.warn('MongoDB fetch error, using local storage:', error.message);
+                contacts = getLocalContacts();
+            }
+        } else {
+            contacts = getLocalContacts();
+        }
+
         res.status(200).json({
             success: true,
             count: contacts.length,
             data: contacts,
+            source: mongoConnected ? 'MongoDB' : 'Local Storage',
         });
     } catch (error) {
         console.error('Error fetching contacts:', error.message);
@@ -142,6 +225,8 @@ app.get('/api/health', (req, res) => {
     res.status(200).json({
         success: true,
         message: 'Server is running',
+        mongoConnected: mongoConnected,
+        storage: mongoConnected ? 'MongoDB' : 'Local File',
     });
 });
 
@@ -149,4 +234,5 @@ app.get('/api/health', (req, res) => {
 app.listen(PORT, () => {
     console.log(`🚀 Server is running on http://localhost:${PORT}`);
     console.log(`📧 Contact API: POST http://localhost:${PORT}/api/contact`);
+    console.log(`💾 Storage: ${mongoConnected ? 'MongoDB' : 'Local File (contacts.json)'}`);
 });

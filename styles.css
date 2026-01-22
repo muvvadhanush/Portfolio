@@ -518,14 +518,18 @@ body {
 
 .timeline-date {
     position: absolute;
-    right: 20px;
-    top: 15px;
-    font-size: 0.85rem;
-    color: var(--secondary-color);
-    font-weight: 600;
-    padding: 0.3rem 0.8rem;
-    background: rgba(37, 99, 235, 0.1);
-    border-radius: 5px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: white;
+    font-weight: 700;
+    padding: 0.4rem 1rem;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border-radius: 20px;
+    min-width: 60px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
 }
 
 .timeline-content {

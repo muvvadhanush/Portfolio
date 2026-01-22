@@ -606,17 +606,23 @@ body {
 
     /* Mobile Optimization for Education & Experience */
     .timeline-content {
-        padding: 1rem;
-        display: flex;
-        flex-direction: column;
+        padding: 1.5rem 1rem 1rem 1rem;
+        /* Added top padding for date space */
+        position: relative;
+        display: block;
+        /* revert back to block to avoid flex issues if any */
     }
 
     .timeline-date {
-        position: static;
+        position: absolute;
+        top: -12px;
+        /* Pull it slightly out of the box or flush with top */
+        right: 15px;
         transform: none;
-        align-self: flex-end;
-        margin-bottom: 0.5rem;
         width: auto;
+        font-size: 0.75rem;
+        /* Slightly smaller for mobile */
+        padding: 0.25rem 0.6rem;
     }
 
     .company-logo {

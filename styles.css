@@ -206,7 +206,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
+    background-image:
         radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 50%);
     pointer-events: none;
@@ -277,14 +277,15 @@ body {
     .hero-title {
         font-size: 2.5rem;
     }
+
     .hero-subtitle {
         font-size: 1.2rem;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
     }
-    
+
     .btn {
         width: 100%;
         max-width: 300px;
@@ -296,16 +297,16 @@ body {
         min-height: 70vh;
         padding: 1.5rem;
     }
-    
+
     .hero-title {
         font-size: 1.8rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1rem;
         margin-bottom: 1.5rem;
     }
-    
+
     .btn {
         padding: 10px 20px;
         font-size: 0.9rem;
@@ -456,11 +457,14 @@ body {
 
 .project-date {
     font-size: 0.85rem;
-    color: var(--text-light);
-    transform: translateY(-50%);
+    color: white;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
     background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border-radius: 20px;
     white-space: nowrap;
     margin-left: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .project-description {
@@ -654,9 +658,14 @@ body {
 
 .internship-date {
     font-size: 0.85rem;
-    color: var(--text-light);
+    color: white;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border-radius: 20px;
     white-space: nowrap;
     margin-left: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .internship-company {
@@ -763,6 +772,7 @@ body {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -773,6 +783,7 @@ body {
         transform: scale(0.5);
         opacity: 0;
     }
+
     to {
         transform: scale(1);
         opacity: 1;
@@ -1048,6 +1059,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1059,6 +1071,7 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1091,15 +1104,15 @@ body {
     .about-info {
         grid-template-columns: 1fr;
     }
-    
+
     .container {
         padding: 0 15px;
     }
-    
+
     .skills-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .projects-grid {
         grid-template-columns: 1fr;
     }

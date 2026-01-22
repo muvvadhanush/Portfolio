@@ -2,6 +2,45 @@
 const body = document.body;
 body.classList.add('dark-theme');
 
+// Certificate Gallery Modal
+const certModal = document.getElementById('certModal');
+const certModalImg = document.getElementById('certModalImg');
+const certModalCaption = document.getElementById('certModalCaption');
+const certModalClose = document.querySelector('.cert-modal-close');
+
+// Get all certificate gallery items
+const certGalleryItems = document.querySelectorAll('.cert-gallery-item');
+
+certGalleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const certName = item.getAttribute('data-cert');
+        const certPath = 'Certificates/' + certName;
+        
+        certModal.classList.add('active');
+        certModalImg.src = certPath;
+        certModalCaption.textContent = certName.replace(/\.[^/.]+$/, '');
+    });
+});
+
+// Close modal when close button is clicked
+certModalClose.addEventListener('click', () => {
+    certModal.classList.remove('active');
+});
+
+// Close modal when clicking outside the image
+certModal.addEventListener('click', (e) => {
+    if (e.target === certModal) {
+        certModal.classList.remove('active');
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        certModal.classList.remove('active');
+    }
+});
+
 // Hamburger Menu Toggle
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');

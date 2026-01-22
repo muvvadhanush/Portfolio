@@ -80,49 +80,71 @@ body {
     gap: 2rem;
 }
 
-.nav-link {
-    color: var(--text-dark);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-    position: relative;
-}
-
-.nav-link:hover {
-    color: var(--primary-color);
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary-color);
-    transition: width 0.3s;
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-.theme-toggle button {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
+.hamburger {
+    display: none;
+    flex-direction: column;
     cursor: pointer;
-    transition: transform 0.3s;
+    gap: 0.5rem;
 }
 
-.theme-toggle button:hover {
-    transform: scale(1.2);
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-dark);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
 }
 
 @media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
     .nav-menu {
-        gap: 1rem;
-        font-size: 0.9rem;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        flex-direction: column;
+        background-color: var(--bg-white);
+        width: 100%;
+        text-align: center;
+        transition: max-height 0.3s ease;
+        max-height: 0;
+        overflow: hidden;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.active {
+        max-height: 500px;
+    }
+
+    .nav-menu li {
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-menu a {
+        display: block;
+    }
+
+    .nav-link::after {
+        display: none;
     }
 }
 
@@ -200,6 +222,36 @@ body {
     }
     .hero-subtitle {
         font-size: 1.2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: 70vh;
+        padding: 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 }
 
@@ -743,5 +795,131 @@ body {
 
     .about-info {
         grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 1.5rem 0;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
+    .nav-container {
+        padding: 0.75rem 15px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .theme-toggle button {
+        font-size: 1.2rem;
+    }
+
+    .hero {
+        min-height: 60vh;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 250px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .about-text {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .info-item {
+        padding: 1rem;
+    }
+
+    .skill-category {
+        padding: 1.5rem;
+    }
+
+    .skill-tag {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .project-card {
+        padding: 1.5rem;
+    }
+
+    .project-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .project-date {
+        margin-left: 0;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .contact-logo {
+        width: 30px;
+        height: 30px;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .contact-item .text {
+        font-size: 0.9rem;
+    }
+
+    .timeline::before {
+        left: 0;
+    }
+
+    .timeline-marker {
+        left: -17px;
+        width: 25px;
+        height: 25px;
+    }
+
+    .timeline-item {
+        margin-left: 25px;
+    }
+
+    .company-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .certifications {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        padding: 1.5rem;
+        font-size: 0.9rem;
     }
 }

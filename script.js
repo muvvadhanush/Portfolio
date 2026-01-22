@@ -1,3 +1,20 @@
+// Hamburger Menu Toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+// Close menu when a nav link is clicked
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    });
+});
+
 // Theme Toggle
 const themeBtn = document.getElementById('theme-btn');
 const body = document.body;
@@ -92,6 +109,27 @@ window.addEventListener('scroll', () => {
             link.style.color = '';
         }
     });
+});
+
+// Handle viewport resize for responsive behavior
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
+});
+
+// Prevent body scroll when mobile menu is open
+function toggleBodyScroll(isOpen) {
+    if (isOpen) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
+    }
+}
+
+hamburger.addEventListener('click', function() {
+    toggleBodyScroll(this.classList.contains('active'));
 });
 
 console.log('Portfolio website loaded successfully!');

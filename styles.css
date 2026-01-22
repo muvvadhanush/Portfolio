@@ -524,9 +524,8 @@ body {
 
 .timeline-date {
     position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+    right: 20px;
+    top: 20px;
     font-size: 0.8rem;
     color: white;
     font-weight: 700;
@@ -539,6 +538,8 @@ body {
 }
 
 .timeline-content {
+    position: relative;
+    /* Ensure date positions relative to this card */
     background: var(--bg-white);
     padding: 1.5rem;
     border-radius: 8px;

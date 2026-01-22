@@ -2,41 +2,49 @@
 const body = document.body;
 body.classList.add('dark-theme');
 
-// Certificate Gallery Modal
+// Certificate Gallery Modal - Updated for new cert-logo structure
 const certModal = document.getElementById('certModal');
 const certModalImg = document.getElementById('certModalImg');
 const certModalCaption = document.getElementById('certModalCaption');
 const certModalClose = document.querySelector('.cert-modal-close');
 
-// Get all certificate gallery items
-const certGalleryItems = document.querySelectorAll('.cert-gallery-item');
+// Get all certificate logos for new structure
+const certLogos = document.querySelectorAll('.cert-logo');
 
-certGalleryItems.forEach(item => {
-    item.addEventListener('click', () => {
-        const certName = item.getAttribute('data-cert');
-        const certPath = 'Certificates/' + certName;
+certLogos.forEach(logo => {
+    logo.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const certItem = logo.closest('.cert-item');
+        const certName = certItem.querySelector('h4').textContent;
+        const certPath = logo.getAttribute('src');
         
-        certModal.classList.add('active');
-        certModalImg.src = certPath;
-        certModalCaption.textContent = certName.replace(/\.[^/.]+$/, '');
+        if (certModal && certModalImg) {
+            certModal.classList.add('active');
+            certModalImg.src = certPath;
+            certModalCaption.textContent = certName;
+        }
     });
 });
 
 // Close modal when close button is clicked
-certModalClose.addEventListener('click', () => {
-    certModal.classList.remove('active');
-});
+if (certModalClose) {
+    certModalClose.addEventListener('click', () => {
+        certModal.classList.remove('active');
+    });
+}
 
 // Close modal when clicking outside the image
-certModal.addEventListener('click', (e) => {
-    if (e.target === certModal) {
-        certModal.classList.remove('active');
-    }
-});
+if (certModal) {
+    certModal.addEventListener('click', (e) => {
+        if (e.target === certModal) {
+            certModal.classList.remove('active');
+        }
+    });
+}
 
 // Close modal with Escape key
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
+    if (e.key === 'Escape' && certModal) {
         certModal.classList.remove('active');
     }
 });

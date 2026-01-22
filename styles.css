@@ -608,6 +608,24 @@ body {
         flex: 1;
         margin-bottom: 0.5rem;
     }
+
+    /* Mobile Optimization for Education & Experience */
+    .company-logo {
+        width: 35px;
+        height: 35px;
+    }
+
+    .timeline-content {
+        padding: 1rem;
+    }
+
+    .company-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .company-header .company {
+        font-size: 0.9rem;
+    }
 }
 
 /* Internships Section */

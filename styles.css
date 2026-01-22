@@ -1,25 +1,25 @@
-/* Root Colors - Nature Theme */
+/* Root Colors - Professional Dashboard */
 :root {
-    --primary-color: #2d5016;
-    --secondary-color: #8bc34a;
-    --accent-color: #d4a574;
-    --text-dark: #1b3d1f;
-    --text-light: #556b5d;
-    --bg-light: #f1f8f0;
-    --bg-white: #fafaf8;
-    --border-color: #c8d7c2;
-    --shadow: 0 10px 30px rgba(45, 80, 22, 0.15);
-    --nature-green-dark: #1b4d2d;
-    --nature-green-light: #a8d18e;
+    --primary-color: #1e3a5f;
+    --secondary-color: #2563eb;
+    --accent-color: #0ea5e9;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --bg-light: #f3f4f6;
+    --bg-white: #ffffff;
+    --border-color: #e5e7eb;
+    --shadow: 0 10px 30px rgba(30, 58, 95, 0.15);
+    --dashboard-dark: #0f172a;
+    --dashboard-light: #e0e7ff;
 }
 
-/* Dark Theme - Nature Inspired Night */
+/* Dark Theme - Professional Night */
 body.dark-theme {
-    --text-dark: #e8f5e9;
-    --text-light: #b8c9b0;
-    --bg-light: #1b3d1f;
-    --bg-white: #0f2817;
-    --border-color: #2d5016;
+    --text-dark: #f3f4f6;
+    --text-light: #d1d5db;
+    --bg-light: #1f2937;
+    --bg-white: #111827;
+    --border-color: #374151;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
@@ -131,7 +131,8 @@ body {
     }
 
     .nav-menu.active {
-        max-height: 500px;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
     }
 
     .nav-menu li {
@@ -190,7 +191,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--nature-green-dark) 0%, var(--primary-color) 50%, var(--secondary-color) 100%);
+    background: linear-gradient(135deg, var(--dashboard-dark) 0%, var(--primary-color) 50%, var(--secondary-color) 100%);
     color: white;
     text-align: center;
     padding: 2rem;
@@ -206,8 +207,8 @@ body {
     right: 0;
     bottom: 0;
     background-image: 
-        radial-gradient(circle at 20% 50%, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(168, 209, 142, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -228,6 +229,7 @@ body {
     font-size: 1.5rem;
     margin-bottom: 2rem;
     opacity: 0.95;
+    animation: slideInUp 1.2s ease-out 0.3s both;
 }
 
 .hero-buttons {
@@ -499,6 +501,8 @@ body {
     margin-bottom: 3rem;
     margin-left: 80px;
     position: relative;
+    display: flex;
+    gap: 2rem;
 }
 
 .timeline-marker {
@@ -512,11 +516,20 @@ body {
     border-radius: 50%;
 }
 
+.timeline-date {
+    flex: 0 0 150px;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    padding-top: 0.5rem;
+}
+
 .timeline-content {
     background: var(--bg-white);
     padding: 1.5rem;
     border-radius: 8px;
     border-left: 4px solid var(--accent-color);
+    flex: 1;
 }
 
 .company-header {
@@ -556,12 +569,6 @@ body {
     margin-bottom: 0.3rem;
 }
 
-.date {
-    color: var(--text-light);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
 .description {
     color: var(--text-light);
     line-height: 1.6;
@@ -580,6 +587,12 @@ body {
 
     .timeline-item {
         margin-left: 40px;
+        flex-direction: column;
+    }
+
+    .timeline-date {
+        flex: 1;
+        margin-bottom: 0.5rem;
     }
 }
 
@@ -993,7 +1006,7 @@ body {
 
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, var(--nature-green-dark) 0%, var(--primary-color) 100%);
+    background: linear-gradient(135deg, var(--dashboard-dark) 0%, var(--primary-color) 100%);
     color: white;
     text-align: center;
     padding: 2rem;
@@ -1004,6 +1017,17 @@ body {
     from {
         opacity: 0;
         transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -1148,6 +1172,11 @@ body {
 
     .timeline-item {
         margin-left: 25px;
+        flex-direction: column;
+    }
+
+    .timeline-date {
+        margin-bottom: 0.5rem;
     }
 
     .company-logo {

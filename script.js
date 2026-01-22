@@ -1,3 +1,7 @@
+// Set Dark Mode as Default
+const body = document.body;
+body.classList.add('dark-theme');
+
 // Hamburger Menu Toggle
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
@@ -13,29 +17,6 @@ document.querySelectorAll('.nav-link').forEach(link => {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
     });
-});
-
-// Theme Toggle
-const themeBtn = document.getElementById('theme-btn');
-const body = document.body;
-
-// Check for saved theme preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    body.classList.add('dark-theme');
-    themeBtn.textContent = '☀️';
-}
-
-themeBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-theme');
-    
-    if (body.classList.contains('dark-theme')) {
-        themeBtn.textContent = '☀️';
-        localStorage.setItem('theme', 'dark');
-    } else {
-        themeBtn.textContent = '🌙';
-        localStorage.setItem('theme', 'light');
-    }
 });
 
 // Smooth scroll behavior for navigation links

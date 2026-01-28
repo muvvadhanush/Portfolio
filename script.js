@@ -17,7 +17,7 @@ certLogos.forEach(logo => {
         const certItem = logo.closest('.cert-item');
         const certName = certItem.querySelector('h4').textContent;
         const certPath = logo.getAttribute('src');
-        
+
         if (certModal && certModalImg) {
             certModal.classList.add('active');
             certModalImg.src = certPath;
@@ -72,7 +72,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
         e.preventDefault();
         const targetId = link.getAttribute('href').substring(1);
         const targetSection = document.getElementById(targetId);
-        
+
         if (targetSection) {
             targetSection.scrollIntoView({ behavior: 'smooth' });
         }
@@ -86,7 +86,7 @@ document.querySelectorAll('.btn').forEach(btn => {
             e.preventDefault();
             const targetId = btn.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
-            
+
             if (targetSection) {
                 targetSection.scrollIntoView({ behavior: 'smooth' });
             }
@@ -119,16 +119,16 @@ document.querySelectorAll('.project-card, .skill-category, .cert-item, .timeline
 // Active navigation link highlighting
 window.addEventListener('scroll', () => {
     let current = '';
-    
+
     document.querySelectorAll('section').forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        
+
         if (window.pageYOffset >= sectionTop - 200) {
             current = section.getAttribute('id');
         }
     });
-    
+
     document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
@@ -156,9 +156,56 @@ function toggleBodyScroll(isOpen) {
     }
 }
 
-hamburger.addEventListener('click', function() {
+hamburger.addEventListener('click', function () {
     toggleBodyScroll(this.classList.contains('active'));
 });
 
 console.log('Portfolio website loaded successfully!');
+
+// Contact Form Handler
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value
+        };
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                formStatus.textContent = result.message;
+                formStatus.className = 'form-status success';
+                contactForm.reset();
+            } else {
+                throw new Error(result.message);
+            }
+        } catch (error) {
+            formStatus.textContent = error.message || 'Something went wrong. Please try again.';
+            formStatus.className = 'form-status error';
+        } finally {
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+        }
+    });
+}
 

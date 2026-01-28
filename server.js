@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mysql = require('mysql2');
+const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const app = express();
@@ -57,11 +58,36 @@ app.post('/api/contact', (req, res) => {
     }
 
     const query = 'INSERT INTO messages (name, email, message) VALUES (?, ?, ?)';
-    db.query(query, [name, email, message], (err, result) => {
+    db.query(query, [name, email, message], async (err, result) => {
         if (err) {
             console.error('❌ Error saving message:', err);
             return res.status(500).json({ success: false, message: 'Database error' });
         }
+
+        // Send Email if credentials exist
+        if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+            try {
+                const transporter = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth: {
+                        user: process.env.EMAIL_USER,
+                        pass: process.env.EMAIL_PASS
+                    }
+                });
+
+                await transporter.sendMail({
+                    from: process.env.EMAIL_USER,
+                    to: process.env.EMAIL_USER,
+                    subject: `New Portfolio Message from ${name}`,
+                    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+                });
+                console.log('✅ Email notification sent');
+            } catch (emailErr) {
+                console.error('⚠️ Failed to send email:', emailErr);
+                // Don't fail the request if just email fails, since DB save worked
+            }
+        }
+
         res.json({ success: true, message: 'Message sent successfully!' });
     });
 });

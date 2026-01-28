@@ -190,14 +190,22 @@ if (contactForm) {
                 body: JSON.stringify(formData)
             });
 
-            const result = await response.json();
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.indexOf("application/json") !== -1) {
+                const result = await response.json();
 
-            if (result.success) {
-                formStatus.textContent = result.message;
-                formStatus.className = 'form-status success';
-                contactForm.reset();
+                if (result.success) {
+                    formStatus.textContent = result.message;
+                    formStatus.className = 'form-status success';
+                    contactForm.reset();
+                } else {
+                    throw new Error(result.message);
+                }
             } else {
-                throw new Error(result.message);
+                // If response is not JSON (e.g., 404 HTML page), throw specific error
+                const text = await response.text();
+                console.error("Server response:", text);
+                throw new Error("Server error: Received HTML instead of JSON. Ensure the Node.js server is running and the 'message' table exists.");
             }
         } catch (error) {
             formStatus.textContent = error.message || 'Something went wrong. Please try again.';

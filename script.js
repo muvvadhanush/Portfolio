@@ -182,12 +182,17 @@ if (contactForm) {
         };
 
         try {
-            const response = await fetch('/api/contact', {
+            const formDataObj = new FormData(contactForm);
+            const object = Object.fromEntries(formDataObj);
+            const json = JSON.stringify(object);
+
+            const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
-                body: JSON.stringify(formData)
+                body: json
             });
 
             const contentType = response.headers.get("content-type");

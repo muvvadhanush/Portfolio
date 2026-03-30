@@ -72,9 +72,13 @@ document.querySelectorAll('.nav-link').forEach(link => {
         e.preventDefault();
         const targetId = link.getAttribute('href').substring(1);
         const targetSection = document.getElementById(targetId);
+        const navHeight = document.querySelector('.navbar').offsetHeight;
 
         if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
+            window.scrollTo({
+                top: targetSection.offsetTop - navHeight,
+                behavior: 'smooth'
+            });
         }
     });
 });
@@ -110,9 +114,11 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all project cards and other elements
-document.querySelectorAll('.project-card, .skill-category, .cert-item, .timeline-item').forEach(el => {
+// Observe all project cards and other elements with staggering
+const animationTargets = document.querySelectorAll('.project-card, .skill-category, .cert-item, .timeline-item');
+animationTargets.forEach((el, index) => {
     el.style.opacity = '0';
+    el.style.transitionDelay = `${(index % 3) * 0.1}s`; // Simple staggering
     observer.observe(el);
 });
 
@@ -175,11 +181,25 @@ if (contactForm) {
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
 
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value
-        };
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        // Basic Validation
+        if (!name || !email || !message) {
+            formStatus.textContent = 'Please fill out all fields.';
+            formStatus.className = 'form-status error';
+            return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            formStatus.textContent = 'Please enter a valid email address.';
+            formStatus.className = 'form-status error';
+            return;
+        }
+
+        const formData = { name, email, message };
 
         try {
             const response = await fetch('/api/contact', {

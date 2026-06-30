@@ -411,12 +411,35 @@ body {
 
 .project-header {
     margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
 }
 
 .project-header h3 {
     color: var(--text-main);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 0;
+    flex: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: 0.6rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.project-link {
+    color: var(--text-muted);
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.project-link:hover {
+    color: var(--primary-color);
 }
 
 .project-date {
@@ -539,43 +562,50 @@ body {
 
 /* Certificates */
 .cert-category-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--text-main);
-    margin: 3rem 0 1.5rem 0;
+    margin: 2rem 0 1rem 0;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .certifications {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
+    align-items: stretch;
 }
 
 .cert-item {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--card-radius);
-    padding: 1.5rem;
+    padding: 1rem;
     text-align: center;
     transition: all 0.3s;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* all cards same height within each row */
+    height: 100%;
 }
 
 .cert-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     border-color: var(--primary-color);
 }
 
 .cert-logo {
     width: 100%;
-    height: 160px;
+    height: 120px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    opacity: 0.8;
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+    opacity: 0.85;
     transition: opacity 0.3s;
+    flex-shrink: 0;
 }
 
 .cert-item:hover .cert-logo {
@@ -584,20 +614,46 @@ body {
 
 .cert-item h4 {
     color: var(--text-main);
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-    line-height: 1.4;
+    margin-bottom: 0.35rem;
+    font-size: 0.85rem;
+    line-height: 1.35;
+    flex-grow: 1;
 }
 
 .cert-org {
     color: var(--text-dim);
-    font-size: 0.85rem;
+    font-size: 0.78rem;
+    margin-top: auto;
 }
 
 .cert-field {
     color: var(--primary-color);
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    margin-top: 0.3rem;
+}
+
+/* Responsive cert grid */
+@media (max-width: 1024px) {
+    .certifications {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .certifications {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .certifications {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .cert-logo {
+        height: 90px;
+    }
 }
 
 /* Modal */

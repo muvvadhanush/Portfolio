@@ -58,17 +58,14 @@ hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-// Close menu when a nav link is clicked
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
-});
-
-// Smooth scroll behavior for navigation links
+// Close menu when a nav link is clicked + smooth scroll
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', (e) => {
+        // Close hamburger menu
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+
+        // Smooth scroll to target section
         e.preventDefault();
         const targetId = link.getAttribute('href').substring(1);
         const targetSection = document.getElementById(targetId);
@@ -178,14 +175,12 @@ if (contactForm) {
 
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalBtnText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
 
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const message = document.getElementById('message').value.trim();
 
-        // Basic Validation
+        // Basic Validation — runs before disabling the button so it can be re-used on error
         if (!name || !email || !message) {
             formStatus.textContent = 'Please fill out all fields.';
             formStatus.className = 'form-status error';
@@ -198,6 +193,10 @@ if (contactForm) {
             formStatus.className = 'form-status error';
             return;
         }
+
+        // Only disable after validation passes
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
 
         const formData = { name, email, message };
 

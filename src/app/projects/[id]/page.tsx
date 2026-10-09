@@ -20,6 +20,8 @@ interface PageProps {
     params: Promise<{ id: string }>;
 }
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://muvvadhanush.com';
+
 export async function generateStaticParams() {
     return projectsData.map((project) => ({
         id: project.id,
@@ -31,12 +33,41 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const project = getProjectById(id);
     if (!project) return { title: 'Project Not Found' };
 
+    const pageUrl = `${siteUrl}/projects/${project.id}`;
+
     return {
-        title: `${project.title} — Muvva Babu Dhanush Kumar`,
-        description: project.description,
+        title: `${project.title} — ${project.subtitle} | Case Study by Dhanush Kumar`,
+        description: project.fullDescription,
+        keywords: [
+            project.title,
+            project.category,
+            ...project.tags,
+            'Muvva Babu Dhanush Kumar',
+            'AI Engineering Case Study',
+        ],
+        alternates: {
+            canonical: pageUrl,
+        },
         openGraph: {
-            title: `${project.title} — Portfolio Project`,
+            title: `${project.title} — AI & ML Engineering Case Study`,
             description: project.description,
+            url: pageUrl,
+            type: 'article',
+            siteName: 'Muvva Babu Dhanush Kumar Portfolio',
+            images: [
+                {
+                    url: project.media?.thumbnail || '/assets/image.png',
+                    width: 1200,
+                    height: 630,
+                    alt: project.title,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `${project.title} — AI Case Study`,
+            description: project.description,
+            images: [project.media?.thumbnail || '/assets/image.png'],
         },
     };
 }
@@ -49,8 +80,68 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         notFound();
     }
 
+    const pageUrl = `${siteUrl}/projects/${project.id}`;
+
+    // Software & Case Study Schema
+    const softwareSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: project.title,
+        alternateName: project.subtitle,
+        description: project.fullDescription,
+        applicationCategory: project.category,
+        operatingSystem: 'Cross-platform',
+        url: pageUrl,
+        author: {
+            '@type': 'Person',
+            name: 'Muvva Babu Dhanush Kumar',
+            url: siteUrl,
+        },
+        offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD',
+        },
+        featureList: project.highlights.join(', '),
+    };
+
+    // Breadcrumb Schema
+    const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: siteUrl,
+            },
+            {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Projects',
+                item: `${siteUrl}/projects`,
+            },
+            {
+                '@type': 'ListItem',
+                position: 3,
+                name: project.title,
+                item: pageUrl,
+            },
+        ],
+    };
+
     return (
         <main className="bg-background text-foreground min-h-screen relative overflow-x-hidden">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+
             <Header />
 
             {/* Background Mesh Glows */}

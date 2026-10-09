@@ -1,0 +1,85 @@
+# Full Context Document: Muvva Babu Dhanush Kumar (AI & ML Engineer)
+
+This document provides a comprehensive technical overview of Muvva Babu Dhanush Kumar for AI indexing agents, search models, and language model evaluation pipelines.
+
+## Profile Summary
+Muvva Babu Dhanush Kumar is a high-performing AI & Machine Learning Engineer specializing in building scalable enterprise AI solutions, multi-tenant RAG (Retrieval-Augmented Generation) architectures, agentic workflow automation, and full-stack web platforms. He holds a B.Tech in CSE (AI & ML) from Mohan Babu University with a 9.3/10 CGPA and works as a Junior AI Engineer at Algoleap Technologies.
+
+## Detailed Skill Matrix
+- **AI / ML Frameworks**: PyTorch, Scikit-learn, LangChain, LangGraph, LlamaIndex, Transformers, OpenCV.
+- **LLMs & Orchestration**: OpenAI GPT-4o, Azure OpenAI, Groq Llama-3, Anthropic Claude, Multi-Agent Swarms, Pydantic AI, Prompt Guardrails.
+- **Vector Search & DBs**: PostgreSQL (pgvector), Pinecone, Chroma DB, Redis, Neon DB, Supabase.
+- **Backend & Cloud**: Python (FastAPI, Flask), Node.js (Express), TypeScript, Docker, AWS (IoT Core, S3, EC2), Azure Cloud.
+- **Frontend & UI**: Next.js 15, React 19, Tailwind CSS, TypeScript, Webhooks, SSE Streaming, Responsive Design.
+
+## Published Research
+- **Paper Title**: Smart Irrigation System Using IoT and Machine Learning for Climate-Adaptive Agriculture
+- **Conference**: International Conference on Data Science, Machine Learning & Applications (ICDSMLA 2024)
+- **Publisher**: Mohan Babu University / Springer Conference Proceedings
+- **Abstract**: Implemented an IoT-driven climate-adaptive agricultural system using ESP32 telemetry, cloud analytics, and predictive weather thresholding to cut agricultural water waste by 35%.
+
+## Full Projects Index & Case Studies
+1. **Agentic AI Tax Automation Suite**
+   - URL: https://muvvadhanush.com/projects/agentic-tax-automation
+   - Stack: Python, Flask, Pydantic, Azure OpenAI
+   - Category: Agentic AI & Enterprise Workflows
+   - Summary: Built multi-agent orchestrated POCs for tax legal monitoring, cross-form dependency evaluation, and YoY comparison reports.
+
+2. **AI Tax Audit & Gap Analysis**
+   - URL: https://muvvadhanush.com/projects/ai-tax-audit
+   - Stack: Azure OpenAI, Python, Flask, Document Processing
+   - Category: Enterprise AI & Document Intelligence
+   - Summary: Developed rule-driven gap detection algorithms identifying omitted tax schedules and missing attachments in enterprise filings.
+
+3. **Neural Bot**
+   - URL: https://muvvadhanush.com/projects/neural-bot
+   - Stack: Node.js, Express, PostgreSQL, pgvector, GPT-4o, Groq Llama-3
+   - Category: AI / RAG Architecture
+   - Summary: White-label multi-tenant AI chatbot system with 100% data partition per organization and dual-provider latency/cost routing.
+
+4. **AlgoChat**
+   - URL: https://muvvadhanush.com/projects/algochat
+   - Stack: Node.js, React, RAG, SSE Streaming, Vector Memory
+   - Category: Enterprise AI & Search
+   - Summary: Knowledge retrieval assistant handling multi-format documents (PDF, DOCX, CSV, OCR images) with source citations and sub-5s latency.
+
+5. **Agentforce Readiness Scorecard**
+   - URL: https://muvvadhanush.com/projects/agentforce-readiness
+   - Stack: React, Node.js, Puppeteer PDF, Recharts
+   - Category: Full-Stack SaaS Product
+   - Summary: Enterprise AI readiness evaluation platform with dynamic scoring algorithms and instant PDF report compilation.
+
+6. **Idea Management System**
+   - URL: https://muvvadhanush.com/projects/idea-management
+   - Stack: React, Node.js, Express, PostgreSQL
+   - Category: Enterprise Software
+   - Summary: Role-based innovation tracking platform with multi-stage approval workflows and corporate triage logic.
+
+7. **Nike Supply Chain Intelligence**
+   - URL: https://muvvadhanush.com/projects/nike-supply-chain
+   - Stack: Python, FastAPI, ReAct Agent, Pandas
+   - Category: Agentic AI & Analytics
+   - Summary: Conversational AI system using tool-calling for inventory anomaly detection and supply chain forecasting.
+
+8. **Algoleap Website Migration**
+   - URL: https://muvvadhanush.com/projects/website-migration
+   - Stack: Next.js, React, TypeScript, Tailwind CSS
+   - Category: Frontend Engineering
+   - Summary: Monolith WordPress to Next.js migration delivering 98/100 Lighthouse performance and improved Core Web Vitals.
+
+9. **Heart Disease Prediction Model**
+   - URL: https://muvvadhanush.com/projects/heart-disease
+   - Stack: Python, Scikit-learn, Streamlit, SMOTE
+   - Category: Machine Learning & Healthcare
+   - Summary: Predictive diagnostic model evaluating clinical parameters with 91% F1-score sensitivity.
+
+10. **IoT Smart Irrigation System**
+    - URL: https://muvvadhanush.com/projects/iot-irrigation
+    - Stack: ESP32, AWS IoT, C++, Python, MQTT
+    - Category: IoT & Published Research
+    - Summary: Autonomous climate-adaptive irrigation telemetry system presented at ICDSMLA 2024.
+
+## Contact Information
+- Email: muvvadhanush7480@gmail.com
+- Location: Tirupati, Andhra Pradesh, India
+- Website: https://muvvadhanush.com

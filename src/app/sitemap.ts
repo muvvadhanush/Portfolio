@@ -1,12 +1,31 @@
 import { MetadataRoute } from 'next';
+import { projectsData } from '@/data/projects';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    return [
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://muvvadhanush.com';
+    const lastModified = new Date();
+
+    const staticRoutes: MetadataRoute.Sitemap = [
         {
-            url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
+            url: baseUrl,
+            lastModified,
+            changeFrequency: 'weekly',
             priority: 1.0,
         },
+        {
+            url: `${baseUrl}/projects`,
+            lastModified,
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
     ];
+
+    const projectRoutes: MetadataRoute.Sitemap = projectsData.map((project) => ({
+        url: `${baseUrl}/projects/${project.id}`,
+        lastModified,
+        changeFrequency: 'monthly',
+        priority: 0.8,
+    }));
+
+    return [...staticRoutes, ...projectRoutes];
 }

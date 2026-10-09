@@ -1,0 +1,50 @@
+# Muvva Babu Dhanush Kumar — AI & ML Engineer
+
+> AI & Machine Learning Engineer specializing in Retrieval-Augmented Generation (RAG) systems, multi-agent orchestrated workflows, dual-provider LLM routing, pgvector semantic search, and full-stack intelligent web applications.
+
+## Core Identity & Profile
+- **Full Name**: Muvva Babu Dhanush Kumar
+- **Professional Title**: AI & ML Engineer / Junior AI Engineer
+- **Location**: Tirupati, Andhra Pradesh, India
+- **Email**: muvvadhanush7480@gmail.com
+- **Phone**: +91 8500227480
+- **Portfolio Website**: https://muvvadhanush.com
+- **LinkedIn**: https://www.linkedin.com/in/muvva-babu-dhanush-kumar-198b81261
+- **GitHub**: https://github.com/BabuDhanushKumar
+
+## Key Engineering Competencies
+- **Artificial Intelligence & LLMs**: Agentic AI, Multi-Agent Systems, Retrieval-Augmented Generation (RAG), Fine-tuning, Hybrid Search, Dual-Provider LLM Routing (OpenAI GPT-4o + Groq Llama-3), Prompt Engineering, Vision OCR.
+- **Backend & Vector Databases**: Python, FastAPI, Flask, Node.js, Express.js, PostgreSQL, pgvector, Pinecone, Chroma DB, Pydantic, RESTful APIs, SSE Streaming.
+- **Frontend & Web Engineering**: Next.js 15, React 19, TypeScript, Tailwind CSS, HTML5, Responsive UI, Core Web Vitals Optimization.
+- **Data Science & ML**: PyTorch, Scikit-learn, Pandas, NumPy, Data Preprocessing, SMOTE, Classification, Time-Series Anomaly Detection.
+- **Cloud & DevOps**: Azure OpenAI Service, AWS IoT Core, Docker, Git, CI/CD, Neon PostgreSQL.
+
+## Professional Experience
+- **Junior AI Engineer** at *Algoleap Technologies* (Jan 2026 – Present | Hyderabad, India):
+  - Architected and deployed agentic AI workflows and enterprise document intelligence POCs.
+  - Implemented multi-tenant AI chatbots with dual-provider LLM routing.
+  - Engineered automated tax audit, gap detection, and compliance report generation algorithms.
+- **AI & ML Engineer Intern** at *Algoleap Technologies* (Jul 2025 – Dec 2025 | Hyderabad, India):
+  - Developed SaaS AI readiness assessment platform (Agentforce Readiness Scorecard).
+  - Migrated corporate website from WordPress monolith to Next.js component architecture (98/100 Lighthouse performance).
+
+## Featured AI & Software Projects
+- **Agentic AI Tax Automation Suite**: Multi-agent orchestrated POCs for tax law monitoring, YoY comparison, legal analysis, and regime optimization (Python, Flask, Pydantic, Azure OpenAI).
+- **AI Tax Audit & Gap Analysis**: Rule-driven gap detection platform identifying missing schedules and document omissions across financial filings.
+- **Neural Bot (Multi-Tenant AI Chatbot System)**: White-label chatbot platform with pgvector Hybrid RAG, 100% organizational schema isolation, and GPT-4o + Groq Llama-3 dual-provider cost/latency optimization.
+- **AlgoChat**: Enterprise RAG knowledge assistant with SSE streaming token delivery and document source citations.
+- **Agentforce Readiness Scorecard**: SaaS platform with automated scoring engine and PDF scorecard generation.
+- **IoT Smart Irrigation System**: Climate-adaptive IoT telemetry system published at ICDSMLA 2024 conference.
+
+## Academic Qualifications & Certifications
+- **Education**: Bachelor of Technology (B.Tech) in Computer Science & Engineering (Artificial Intelligence & Machine Learning) at Mohan Babu University (2022 – 2026), CGPA: 9.3/10.
+- **Key Certifications**:
+  - AWS Certified Cloud Practitioner (Amazon Web Services)
+  - Microsoft Certified: Azure AI Fundamentals (Microsoft)
+  - Google Cloud Computing Foundations (Google Cloud)
+  - Machine Learning & Deep Learning Specialization (Coursera / DeepLearning.AI)
+
+## How to Contact & Hire
+For job opportunities, technical consulting, or enterprise AI project collaborations:
+- Email: muvvadhanush7480@gmail.com
+- Contact Form: https://muvvadhanush.com/#contact

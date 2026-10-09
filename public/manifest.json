@@ -1,0 +1,21 @@
+{
+  "name": "Muvva Babu Dhanush Kumar — AI & ML Engineer Portfolio",
+  "short_name": "Dhanush Portfolio",
+  "description": "Portfolio of Muvva Babu Dhanush Kumar, AI & ML Engineer specializing in RAG systems, multi-tenant chatbots, and intelligent full-stack applications.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0F17",
+  "theme_color": "#6EE7F7",
+  "icons": [
+    {
+      "src": "/assets/image.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/image.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

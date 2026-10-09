@@ -114,7 +114,7 @@ export default function HeroSection() {
                                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                             </span>
                             <span className="section-label text-primary tracking-wider text-[10px] sm:text-[11px] truncate">
-                                AI & ML Engineer @ Algoleap
+                                Junior Engineer @ Algoleap Technologies
                             </span>
                         </div>
 

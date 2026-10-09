@@ -55,7 +55,7 @@ export default function Header() {
                     {/* Logo */}
                     <Link href="/#home" className="flex items-center gap-2.5 group">
                         <div className="w-8 h-8 rounded-lg overflow-hidden border border-primary/40 shadow-sm animate-pulse-glow flex-shrink-0">
-                            <img src="/assests/image.png" alt="Dhanush Logo" className="w-full h-full object-cover" />
+                            <img src="/icon-dark.png" alt="Dhanush Logo" className="w-full h-full object-cover" />
                         </div>
                         <span className="font-bold text-sm tracking-tight text-foreground block">
                             Dhanush<span className="text-primary">.</span>

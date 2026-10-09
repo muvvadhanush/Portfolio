@@ -88,10 +88,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/assets/image.png', type: 'image/png' },
-      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/icon-light.png', media: '(prefers-color-scheme: light)', type: 'image/png' },
+      { url: '/icon-dark.png', media: '(prefers-color-scheme: dark)', type: 'image/png' },
+      { url: '/icon-dark.png', type: 'image/png' },
     ],
-    apple: [{ url: '/assets/image.png', type: 'image/png' }],
+    apple: [
+      { url: '/icon-light.png', media: '(prefers-color-scheme: light)', type: 'image/png' },
+      { url: '/icon-dark.png', media: '(prefers-color-scheme: dark)', type: 'image/png' },
+    ],
   },
 };
 

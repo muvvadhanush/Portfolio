@@ -77,10 +77,10 @@ export default function CertificationsSection() {
     const currentItems = certGroups[activeGroup].items;
 
     return (
-        <section id="certifications" className="py-20 sm:py-24 bg-secondary/20" ref={sectionRef}>
+        <section id="certifications" className="py-16 sm:py-24 bg-secondary/20" ref={sectionRef}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                <div className="reveal-hidden mb-10 sm:mb-12">
-                    <span className="section-label text-primary block mb-3 sm:mb-4">Credentials</span>
+                <div className="reveal-hidden mb-6 sm:mb-12">
+                    <span className="section-label text-primary block mb-2 sm:mb-4">Credentials</span>
                     <h2 className="text-3xl sm:text-5xl font-extrabold text-foreground tracking-tight leading-tight">
                         Certifications &{' '}
                         <span className="text-gradient-cyan">Achievements</span>
@@ -88,30 +88,30 @@ export default function CertificationsSection() {
                 </div>
 
                 {/* Tab filters */}
-                <div className="reveal-hidden flex gap-2 overflow-x-auto no-scrollbar pb-3 sm:flex-wrap mb-8 sm:mb-10">
+                <div className="reveal-hidden flex gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar pb-2 sm:flex-wrap mb-6 sm:mb-10">
                     {certGroups.map((g, i) => (
                         <button
                             key={g.group}
                             onClick={() => setActiveGroup(i)}
-                            className={`px-4 py-2 sm:px-5 sm:py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-300 ${
+                            className={`px-3 py-1.5 sm:px-5 sm:py-2 rounded-full text-[11px] sm:text-xs font-bold whitespace-nowrap transition-all duration-300 ${
                                 activeGroup === i
                                     ? 'bg-primary text-primary-foreground shadow-lg'
                                     : 'glass-card text-muted-foreground hover:text-foreground hover:border-primary/30'
                             }`}
                         >
                             {g.group}
-                            <span className="ml-1.5 opacity-60">({g.items.length})</span>
+                            <span className="ml-1 opacity-70">({g.items.length})</span>
                         </button>
                     ))}
                 </div>
 
                 {/* Cert grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
                     {currentItems.map((cert, i) => (
                         <button
                             key={cert.title}
                             onClick={() => setLightboxImg(cert.img)}
-                            className="reveal-hidden glass-card rounded-2xl overflow-hidden card-hover text-left group"
+                            className="reveal-hidden glass-card rounded-2xl overflow-hidden card-hover text-left group active:scale-[0.99] transition-transform"
                             style={{ transitionDelay: `${i * 50}ms` }}
                             aria-label={`View certificate: ${cert.title}`}
                         >
@@ -128,9 +128,9 @@ export default function CertificationsSection() {
                                     <ArrowUpRightIcon className="w-5 h-5 text-primary" />
                                 </div>
                             </div>
-                            <div className="p-3.5 sm:p-4">
+                            <div className="p-3 sm:p-4">
                                 <h4 className="text-xs sm:text-sm font-bold text-foreground leading-snug mb-1">{cert.title}</h4>
-                                <p className="section-label text-muted-foreground">{cert.issuer}</p>
+                                <p className="section-label text-muted-foreground text-[9px] sm:text-[10px]">{cert.issuer}</p>
                             </div>
                         </button>
                     ))}
@@ -152,13 +152,13 @@ export default function CertificationsSection() {
                             alt="Certificate preview enlarged view"
                             width={900}
                             height={640}
-                            className="w-full h-auto object-contain max-h-[85vh]"
+                            className="w-full h-auto object-contain max-h-[80vh]"
                             unoptimized
                         />
 
                         <button
                             onClick={() => setLightboxImg(null)}
-                            className="absolute top-3 right-3 w-9 h-9 rounded-full bg-muted/90 border border-border flex items-center justify-center text-foreground hover:bg-muted transition-colors text-sm font-bold shadow-lg"
+                            className="absolute top-3 right-3 w-10 h-10 rounded-full bg-muted/95 border border-border flex items-center justify-center text-foreground hover:bg-muted active:scale-95 transition-all text-sm font-bold shadow-xl"
                             aria-label="Close certificate preview"
                         >
                             ✕

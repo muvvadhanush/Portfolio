@@ -223,13 +223,13 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                                 ))}
                             </div>
 
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-3 w-full sm:w-auto">
                                 {project.links.github && (
                                     <a
                                         href={project.links.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 glass-card text-foreground text-xs font-bold px-4 py-2.5 sm:px-5 sm:py-3 rounded-full hover:border-primary/40 transition-all"
+                                        className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 glass-card text-foreground text-xs font-bold px-4 py-2.5 sm:px-5 sm:py-3 rounded-full hover:border-primary/40 transition-all text-center"
                                     >
                                         GitHub Repo
                                         <ArrowUpRightIcon className="w-3.5 h-3.5" />
@@ -240,7 +240,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                                         href={project.links.live}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-xs font-bold px-5 py-2.5 sm:px-6 sm:py-3 rounded-full hover:bg-accent transition-all shadow-lg hover:shadow-primary/30"
+                                        className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground text-xs font-bold px-5 py-2.5 sm:px-6 sm:py-3 rounded-full hover:bg-accent transition-all shadow-lg hover:shadow-primary/30 text-center"
                                     >
                                         Live Demo
                                         <ArrowUpRightIcon className="w-3.5 h-3.5" />

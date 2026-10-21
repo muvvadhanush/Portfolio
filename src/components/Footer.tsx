@@ -3,8 +3,8 @@ import React from 'react';
 export default function Footer() {
     return (
         <footer className="border-t border-border/50 py-8 bg-background">
-            <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p className="text-muted-foreground text-sm font-medium">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                <p className="text-muted-foreground text-xs sm:text-sm font-medium">
                     © 2025 Muvva Babu Dhanush Kumar. All rights reserved.
                 </p>
                 <div className="flex items-center gap-6">

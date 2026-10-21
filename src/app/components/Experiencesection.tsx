@@ -97,62 +97,64 @@ export default function ExperienceSection() {
     }, []);
 
     return (
-        <section id="experience" className="py-24" ref={sectionRef}>
-            <div className="max-w-7xl mx-auto px-6">
-                <div className="reveal-hidden mb-16">
-                    <span className="section-label text-primary block mb-4">Career Path</span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight">
+        <section id="experience" className="py-16 sm:py-24" ref={sectionRef}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                <div className="reveal-hidden mb-8 sm:mb-16">
+                    <span className="section-label text-primary block mb-2 sm:mb-4">Career Path</span>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight">
                         Experience &{' '}
                         <span className="text-gradient-cyan">Education</span>
                     </h2>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-8">
+                <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
                     {/* Experience Column */}
-                    <div className="space-y-5">
-                        <p className="section-label text-muted-foreground mb-6">Professional Experience</p>
+                    <div className="space-y-4 sm:space-y-5">
+                        <p className="section-label text-muted-foreground mb-3 sm:mb-6">Professional Experience</p>
                         {experiences.map((exp, i) => (
                             <div
                                 key={`${exp.company}-${exp.role}`}
-                                className="reveal-hidden glass-card rounded-2xl p-6 card-hover relative overflow-hidden"
+                                className="reveal-hidden glass-card rounded-2xl p-4 sm:p-6 card-hover relative overflow-hidden"
                                 style={{ transitionDelay: `${i * 100}ms` }}
                             >
-                                {exp.current && (
-                                    <div className="absolute top-4 right-4 flex items-center gap-2">
-                                        <div className="relative">
-                                            <div className="w-2 h-2 rounded-full bg-primary" />
-                                            <div className="absolute inset-0 w-2 h-2 rounded-full bg-primary animate-ping-slow" />
+                                <div className="flex items-start justify-between gap-2.5 mb-3 sm:mb-4">
+                                    <div className="flex items-start gap-3 sm:gap-4 min-w-0">
+                                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden bg-muted border border-border/50 flex-shrink-0">
+                                            <AppImage
+                                                src={exp.logo}
+                                                alt={exp.logoAlt}
+                                                width={48}
+                                                height={48}
+                                                className="w-full h-full object-contain p-1"
+                                            />
                                         </div>
-                                        <span className="section-label text-primary">Current</span>
+                                        <div className="min-w-0">
+                                            <h3 className="text-sm sm:text-base font-bold text-foreground leading-snug">{exp.role}</h3>
+                                            <p className="text-xs sm:text-sm font-semibold truncate" style={{ color: exp.accent }}>
+                                                {exp.company}
+                                            </p>
+                                            <p className="section-label text-muted-foreground mt-0.5 text-[9px] sm:text-[10px]">{exp.period}</p>
+                                        </div>
                                     </div>
-                                )}
 
-                                <div className="flex items-start gap-4 mb-4">
-                                    <div className="w-12 h-12 rounded-xl overflow-hidden bg-muted border border-border/50 flex-shrink-0">
-                                        <AppImage
-                                            src={exp.logo}
-                                            alt={exp.logoAlt}
-                                            width={48}
-                                            height={48}
-                                            className="w-full h-full object-contain p-1"
-                                        />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-base font-bold text-foreground">{exp.role}</h3>
-                                        <p className="text-sm font-semibold" style={{ color: exp.accent }}>
-                                            {exp.company}
-                                        </p>
-                                        <p className="section-label text-muted-foreground mt-0.5">{exp.period}</p>
-                                    </div>
+                                    {exp.current && (
+                                        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/25 flex-shrink-0">
+                                            <div className="relative">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                                                <div className="absolute inset-0 w-1.5 h-1.5 rounded-full bg-primary animate-ping-slow" />
+                                            </div>
+                                            <span className="section-label text-primary text-[9px]">Current</span>
+                                        </div>
+                                    )}
                                 </div>
 
-                                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{exp.description}</p>
+                                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">{exp.description}</p>
 
-                                <div className="flex flex-wrap gap-2">
+                                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                                     {exp.tags.map((tag) => (
                                         <span
                                             key={tag}
-                                            className="text-xs font-semibold px-2.5 py-1 rounded-full"
+                                            className="text-[10px] sm:text-xs font-semibold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full"
                                             style={{
                                                 background: `${exp.accent}12`,
                                                 color: exp.accent,
@@ -168,16 +170,16 @@ export default function ExperienceSection() {
                     </div>
 
                     {/* Education Column */}
-                    <div className="space-y-5">
-                        <p className="section-label text-muted-foreground mb-6">Education</p>
+                    <div className="space-y-4 sm:space-y-5">
+                        <p className="section-label text-muted-foreground mb-3 sm:mb-6">Education</p>
                         {education.map((edu, i) => (
                             <div
                                 key={edu.institution}
-                                className="reveal-hidden glass-card rounded-2xl p-6 card-hover"
+                                className="reveal-hidden glass-card rounded-2xl p-4 sm:p-6 card-hover"
                                 style={{ transitionDelay: `${i * 100 + 50}ms` }}
                             >
-                                <div className="flex items-start gap-4 mb-3">
-                                    <div className="w-12 h-12 rounded-xl overflow-hidden bg-muted border border-border/50 flex-shrink-0">
+                                <div className="flex items-start gap-3 sm:gap-4">
+                                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden bg-muted border border-border/50 flex-shrink-0">
                                         <AppImage
                                             src={edu.logo}
                                             alt={edu.logoAlt}
@@ -187,17 +189,19 @@ export default function ExperienceSection() {
                                         />
                                     </div>
                                     <div className="flex-1 min-w-0">
-                                        <h3 className="text-sm font-bold text-foreground leading-snug">{edu.degree}</h3>
-                                        <p className="text-xs font-semibold mt-0.5 truncate" style={{ color: edu.accent }}>
+                                        <div className="flex items-start justify-between gap-2 mb-1">
+                                            <h3 className="text-xs sm:text-sm font-bold text-foreground leading-snug">{edu.degree}</h3>
+                                            <span
+                                                className="flex-shrink-0 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg text-[10px] sm:text-xs font-bold"
+                                                style={{ background: `${edu.accent}15`, color: edu.accent }}
+                                            >
+                                                {edu.result}
+                                            </span>
+                                        </div>
+                                        <p className="text-[11px] sm:text-xs font-semibold truncate" style={{ color: edu.accent }}>
                                             {edu.institution}
                                         </p>
-                                        <p className="section-label text-muted-foreground mt-0.5">{edu.period}</p>
-                                    </div>
-                                    <div
-                                        className="flex-shrink-0 px-3 py-1.5 rounded-xl text-xs font-black"
-                                        style={{ background: `${edu.accent}15`, color: edu.accent }}
-                                    >
-                                        {edu.result}
+                                        <p className="section-label text-muted-foreground mt-0.5 text-[9px] sm:text-[10px]">{edu.period}</p>
                                     </div>
                                 </div>
                             </div>
@@ -205,17 +209,17 @@ export default function ExperienceSection() {
 
                         {/* Publication Callout */}
                         <div
-                            className="reveal-hidden glass-card rounded-2xl p-6 border border-primary/20 cyan-glow"
+                            className="reveal-hidden glass-card rounded-2xl p-4 sm:p-6 border border-primary/20 cyan-glow"
                             style={{ transitionDelay: '350ms' }}
                         >
                             <div className="flex items-start gap-3">
-                                <span className="text-2xl flex-shrink-0">📄</span>
+                                <span className="text-xl sm:text-2xl flex-shrink-0">📄</span>
                                 <div>
-                                    <p className="section-label text-primary mb-2">Publication</p>
-                                    <h4 className="text-sm font-bold text-foreground leading-snug mb-1">
+                                    <p className="section-label text-primary mb-1 sm:mb-2 text-[9px] sm:text-[10px]">Publication</p>
+                                    <h4 className="text-xs sm:text-sm font-bold text-foreground leading-snug mb-1">
                                         IoT-Based Smart Irrigation Systems for Climate-Resilient Farming
                                     </h4>
-                                    <p className="text-xs text-muted-foreground">
+                                    <p className="text-[11px] sm:text-xs text-muted-foreground leading-relaxed">
                                         6th International Conference on Data Science, Machine Learning & Application (ICDSMLA-2024), Mohan Babu University
                                     </p>
                                 </div>

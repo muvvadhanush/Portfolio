@@ -106,34 +106,34 @@ export default function HeroSection() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full relative z-10 my-auto">
                 <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center">
                     {/* Left Column: Bio & Interactive AI Simulator */}
-                    <div className="lg:col-span-7 space-y-6 sm:space-y-8">
+                    <div className="lg:col-span-7 space-y-5 sm:space-y-8">
                         {/* Live Status Pill */}
-                        <div className="inline-flex items-center gap-2.5 glass-card rounded-full px-3.5 py-1.5 sm:px-4 sm:py-2 border border-primary/25">
-                            <span className="relative flex h-2.5 w-2.5">
+                        <div className="inline-flex items-center gap-2 glass-card rounded-full px-3 py-1.5 sm:px-4 sm:py-2 border border-primary/25 max-w-full">
+                            <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 flex-shrink-0">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-emerald-500"></span>
                             </span>
-                            <span className="section-label text-primary tracking-wider text-[10px] sm:text-[11px] truncate">
+                            <span className="section-label text-primary tracking-wider text-[9px] sm:text-[11px] truncate">
                                 Junior Engineer @ Algoleap Technologies
                             </span>
                         </div>
 
                         {/* Title */}
                         <div>
-                            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-foreground tracking-tight leading-[1.08] mb-3 sm:mb-4">
-                                Muvva Babu <br />
+                            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-foreground tracking-tight leading-[1.1] mb-2 sm:mb-4">
+                                Muvva Babu <br className="hidden xs:inline" />
                                 <span className="text-gradient-cyan">Dhanush Kumar</span>
                             </h1>
-                            <p className="text-muted-foreground text-sm sm:text-lg lg:text-xl font-light leading-relaxed max-w-2xl">
+                            <p className="text-muted-foreground text-xs sm:text-base lg:text-xl font-normal leading-relaxed max-w-2xl">
                                 Architecting enterprise RAG pipelines, multi-tenant AI backends, and intelligent full-stack applications.
                             </p>
                         </div>
 
                         {/* CTAs */}
-                        <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+                        <div className="flex flex-col xs:flex-row items-stretch xs:items-center gap-2.5 sm:gap-4">
                             <Link
                                 href="/#projects"
-                                className="group flex items-center gap-2.5 bg-primary text-primary-foreground px-6 py-3 sm:px-7 sm:py-3.5 rounded-full font-bold text-xs sm:text-sm hover:bg-accent transition-all duration-300 shadow-lg hover:shadow-primary/30"
+                                className="group flex items-center justify-center gap-2 bg-primary text-primary-foreground px-5 py-3 sm:px-7 sm:py-3.5 rounded-full font-bold text-xs sm:text-sm hover:bg-accent active:scale-[0.98] transition-all duration-300 shadow-lg hover:shadow-primary/30"
                             >
                                 Explore Projects
                                 <ArrowUpRightIcon className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -142,7 +142,7 @@ export default function HeroSection() {
                                 href="/Muvva Babu Dhanush Kumar.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group flex items-center gap-2 glass-card text-foreground px-5 py-3 sm:px-6 sm:py-3.5 rounded-full font-bold text-xs sm:text-sm hover:border-primary/40 transition-all duration-300"
+                                className="group flex items-center justify-center gap-2 glass-card text-foreground px-5 py-3 sm:px-6 sm:py-3.5 rounded-full font-bold text-xs sm:text-sm hover:border-primary/40 active:scale-[0.98] transition-all duration-300"
                             >
                                 <DocumentTextIcon className="w-4 h-4 text-primary" />
                                 Resume PDF
@@ -150,25 +150,26 @@ export default function HeroSection() {
                         </div>
 
                         {/* Live Interactive Prompt Playground Widget */}
-                        <div className="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-primary/20 space-y-3 sm:space-y-4 cyan-glow">
+                        <div className="glass-card rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 border border-primary/20 space-y-3 sm:space-y-4 cyan-glow">
                             <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-2 text-[11px] sm:text-xs font-bold text-primary uppercase tracking-wider">
-                                    <SparklesIcon className="w-4 h-4 text-primary animate-spin-slow" />
-                                    AI Portfolio Query Sandbox
+                                <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-bold text-primary uppercase tracking-wider">
+                                    <SparklesIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary animate-spin-slow flex-shrink-0" />
+                                    <span>AI Query Sandbox</span>
                                 </div>
-                                <span className="text-[9px] sm:text-[10px] text-muted-foreground font-mono">Interactive Demo</span>
+                                <span className="text-[9px] sm:text-[10px] text-muted-foreground font-mono">Live Demo</span>
                             </div>
 
                             {/* Prompt Choice Buttons */}
-                            <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1 sm:flex-wrap">
+                            <div className="flex gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar pb-1 sm:flex-wrap">
                                 {promptOptions.map((opt, idx) => (
                                     <button
                                         key={opt.label}
                                         onClick={() => setActivePrompt(idx)}
-                                        className={`text-[11px] sm:text-xs px-3 py-1.5 rounded-full font-semibold whitespace-nowrap transition-all ${activePrompt === idx
-                                            ? 'bg-primary text-primary-foreground shadow-md'
-                                            : 'bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground'
-                                            }`}
+                                        className={`text-[10px] sm:text-xs px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-full font-semibold whitespace-nowrap transition-all ${
+                                            activePrompt === idx
+                                                ? 'bg-primary text-primary-foreground shadow-md'
+                                                : 'bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground'
+                                        }`}
                                     >
                                         {opt.label}
                                     </button>
@@ -176,13 +177,13 @@ export default function HeroSection() {
                             </div>
 
                             {/* Interactive Output Box */}
-                            <div className="bg-muted/60 border border-border/60 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 font-mono text-[11px] sm:text-xs space-y-1.5">
-                                <p className="text-primary font-bold">
+                            <div className="bg-muted/60 border border-border/60 rounded-xl sm:rounded-2xl p-3 sm:p-4 font-mono text-[10px] sm:text-xs space-y-1.5">
+                                <p className="text-primary font-bold break-words">
                                     &gt; {promptOptions[activePrompt].query}
                                 </p>
-                                <p className="text-foreground leading-relaxed">
+                                <p className="text-foreground leading-relaxed break-words">
                                     {typedText}
-                                    {isTyping && <span className="inline-block w-2 h-4 bg-primary ml-1 animate-pulse" />}
+                                    {isTyping && <span className="inline-block w-1.5 h-3.5 bg-primary ml-1 animate-pulse" />}
                                 </p>
                             </div>
                         </div>
@@ -191,7 +192,7 @@ export default function HeroSection() {
                     {/* Right Column: Photo & Live Code Terminal */}
                     <div className="lg:col-span-5 space-y-4 sm:space-y-6">
                         {/* Avatar Image Frame */}
-                        <div className="relative mx-auto max-w-xs sm:max-w-sm group">
+                        <div className="relative mx-auto max-w-[200px] sm:max-w-xs md:max-w-sm group">
                             <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-cyan-400 via-sky-500 to-indigo-500 opacity-25 blur-lg group-hover:opacity-50 transition duration-500"></div>
                             <div className="relative glass-card rounded-3xl overflow-hidden border border-primary/30 aspect-square">
                                 <img
@@ -199,33 +200,35 @@ export default function HeroSection() {
                                     alt="Muvva Babu Dhanush Kumar"
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                 />
-                                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 glass-card rounded-2xl p-3 border border-white/10 backdrop-blur-md">
-                                    <p className="text-xs sm:text-sm font-bold text-foreground">Muvva Babu Dhanush Kumar</p>
-                                    <p className="text-[10px] sm:text-[11px] text-primary font-semibold">AI & ML Engineer</p>
+                                <div className="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-4 sm:left-4 sm:right-4 glass-card rounded-xl sm:rounded-2xl p-2.5 sm:p-3 border border-white/10 backdrop-blur-md">
+                                    <p className="text-xs sm:text-sm font-bold text-foreground truncate">Muvva Babu Dhanush Kumar</p>
+                                    <p className="text-[9px] sm:text-[11px] text-primary font-semibold">AI & ML Engineer</p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Interactive Code Terminal Console */}
-                        <div className="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-border/60 font-mono text-[11px] sm:text-xs space-y-3">
-                            <div className="flex items-center justify-between border-b border-border/40 pb-2.5">
+                        <div className="glass-card rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 border border-border/60 font-mono text-[10px] sm:text-xs space-y-2.5 sm:space-y-3">
+                            <div className="flex items-center justify-between border-b border-border/40 pb-2">
                                 <div className="flex items-center gap-1.5">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-                                    <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                                    <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-red-500/80" />
+                                    <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-amber-500/80" />
+                                    <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-emerald-500/80" />
                                 </div>
-                                <div className="flex items-center gap-1.5">
+                                <div className="flex items-center gap-1">
                                     <button
                                         onClick={() => setActiveTab('code')}
-                                        className={`px-2.5 py-0.5 rounded text-[10px] font-bold ${activeTab === 'code' ? 'bg-primary/20 text-primary' : 'text-muted-foreground'
-                                            }`}
+                                        className={`px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-bold transition-colors ${
+                                            activeTab === 'code' ? 'bg-primary/20 text-primary' : 'text-muted-foreground hover:text-foreground'
+                                        }`}
                                     >
                                         developer.ts
                                     </button>
                                     <button
                                         onClick={() => setActiveTab('rag')}
-                                        className={`px-2.5 py-0.5 rounded text-[10px] font-bold ${activeTab === 'rag' ? 'bg-primary/20 text-primary' : 'text-muted-foreground'
-                                            }`}
+                                        className={`px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-bold transition-colors ${
+                                            activeTab === 'rag' ? 'bg-primary/20 text-primary' : 'text-muted-foreground hover:text-foreground'
+                                        }`}
                                     >
                                         architecture.rag
                                     </button>
@@ -233,24 +236,24 @@ export default function HeroSection() {
                             </div>
 
                             {activeTab === 'code' ? (
-                                <div className="text-muted-foreground space-y-1 leading-relaxed overflow-x-auto no-scrollbar">
+                                <div className="text-muted-foreground space-y-1 leading-relaxed text-[10px] sm:text-[11px]">
                                     <p><span className="text-purple-400">const</span> <span className="text-cyan-300">engineer</span> = &#123;</p>
-                                    <p className="pl-3 sm:pl-4"><span className="text-sky-300">name</span>: <span className="text-emerald-300">&apos;Muvva Babu Dhanush Kumar&apos;</span>,</p>
+                                    <p className="pl-3 sm:pl-4"><span className="text-sky-300">name</span>: <span className="text-emerald-300">&apos;Dhanush Kumar&apos;</span>,</p>
                                     <p className="pl-3 sm:pl-4"><span className="text-sky-300">role</span>: <span className="text-emerald-300">&apos;AI / ML Engineer&apos;</span>,</p>
                                     <p className="pl-3 sm:pl-4"><span className="text-sky-300">stack</span>: [<span className="text-amber-300">&apos;Python&apos;</span>, <span className="text-amber-300">&apos;Next.js&apos;</span>, <span className="text-amber-300">&apos;pgvector&apos;</span>],</p>
-                                    <p className="pl-3 sm:pl-4"><span className="text-sky-300">architecture</span>: <span className="text-emerald-300">&apos;Hybrid RAG + Agentic AI&apos;</span>,</p>
-                                    <p className="pl-3 sm:pl-4"><span className="text-sky-300">status</span>: <span className="text-emerald-400">&apos;Junior Engineer @ Algoleap Technologies&apos;</span></p>
+                                    <p className="pl-3 sm:pl-4"><span className="text-sky-300">focus</span>: <span className="text-emerald-300">&apos;Hybrid RAG + Agentic AI&apos;</span>,</p>
+                                    <p className="pl-3 sm:pl-4"><span className="text-sky-300">status</span>: <span className="text-emerald-400">&apos;Junior Engineer @ Algoleap&apos;</span></p>
                                     <p>&#125;;</p>
                                 </div>
                             ) : (
                                 <div className="text-muted-foreground space-y-1.5 leading-relaxed text-[10px] sm:text-[11px]">
-                                    <div className="flex items-center gap-2 text-emerald-400 font-bold">
-                                        <CheckCircleIcon className="w-4 h-4" /> Hybrid Retrieval Pipeline
+                                    <div className="flex items-center gap-1.5 text-emerald-400 font-bold">
+                                        <CheckCircleIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> Hybrid Retrieval Pipeline
                                     </div>
-                                    <p>• Dense Vector Embedding (OpenAI / HuggingFace)</p>
-                                    <p>• Sparse Keyword Search (Postgres TSQUERY)</p>
-                                    <p>• Multi-Tenant Schema Isolation (pgvector HNSW)</p>
-                                    <p>• Streaming Server-Sent Events (SSE)</p>
+                                    <p>• Dense Vector Search (OpenAI / HuggingFace)</p>
+                                    <p>• Sparse Keyword Fallback (Postgres TSQUERY)</p>
+                                    <p>• Tenant Isolation (pgvector HNSW indexes)</p>
+                                    <p>• Low-latency Streaming Server-Sent Events (SSE)</p>
                                 </div>
                             )}
                         </div>
@@ -258,7 +261,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* Bottom Bento Stats Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-border/40">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 mt-8 sm:mt-16 pt-5 sm:pt-8 border-t border-border/40">
                     {[
                         { value: '4+', label: 'Enterprise AI Projects', icon: CpuChipIcon },
                         { value: '91%', label: 'ML Sensitivity Score', icon: SparklesIcon },
@@ -267,13 +270,15 @@ export default function HeroSection() {
                     ].map((stat) => {
                         const IconComp = stat.icon;
                         return (
-                            <div key={stat.label} className="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-border/50 space-y-1">
-                                <div className="flex items-center justify-between mb-1.5 sm:mb-2">
-                                    <IconComp className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                                    <span className="text-[9px] sm:text-[10px] font-mono text-muted-foreground uppercase">Metric</span>
+                            <div key={stat.label} className="glass-card rounded-xl sm:rounded-2xl p-3 sm:p-5 border border-border/50 space-y-1">
+                                <div className="flex items-center justify-between mb-1 sm:mb-2">
+                                    <IconComp className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-primary" />
+                                    <span className="text-[8px] sm:text-[10px] font-mono text-muted-foreground uppercase">Metric</span>
                                 </div>
-                                <p className="text-xl sm:text-2xl font-extrabold text-foreground">{stat.value}</p>
-                                <p className="section-label text-muted-foreground text-[9px] sm:text-[10px] truncate">{stat.label}</p>
+                                <p className="text-lg sm:text-2xl font-extrabold text-foreground">{stat.value}</p>
+                                <p className="text-muted-foreground text-[10px] sm:text-xs font-semibold leading-tight line-clamp-2 min-h-[26px]">
+                                    {stat.label}
+                                </p>
                             </div>
                         );
                     })}

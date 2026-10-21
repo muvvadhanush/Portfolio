@@ -74,11 +74,11 @@ export default function SkillsSection() {
     }, []);
 
     return (
-        <section id="skills" className="py-20 sm:py-24" ref={sectionRef}>
+        <section id="skills" className="py-16 sm:py-24" ref={sectionRef}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                <div className="reveal-hidden mb-12 sm:mb-16">
-                    <span className="section-label text-primary block mb-3 sm:mb-4">Technical Stack</span>
-                    <div className="flex flex-col md:flex-row md:items-end gap-4 sm:gap-6 justify-between">
+                <div className="reveal-hidden mb-8 sm:mb-16">
+                    <span className="section-label text-primary block mb-2 sm:mb-4">Technical Stack</span>
+                    <div className="flex flex-col md:flex-row md:items-end gap-3 sm:gap-6 justify-between">
                         <h2 className="text-3xl sm:text-5xl font-extrabold text-foreground tracking-tight leading-tight">
                             Skills &{' '}
                             <span className="text-gradient-cyan">Expertise</span>
@@ -89,22 +89,22 @@ export default function SkillsSection() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5">
                     {skillCategories.map((cat, i) => (
                         <div
                             key={cat.category}
-                            className="reveal-hidden glass-card rounded-2xl p-5 sm:p-6 card-hover"
+                            className="reveal-hidden glass-card rounded-2xl p-4 sm:p-6 card-hover"
                             style={{ transitionDelay: `${i * 50}ms` }}
                         >
-                            <div className="flex items-center gap-3 mb-4 sm:mb-5">
-                                <span className={`text-xl sm:text-2xl font-black ${cat.color}`}>{cat.icon}</span>
+                            <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-5">
+                                <span className={`text-lg sm:text-2xl font-black ${cat.color}`}>{cat.icon}</span>
                                 <h3 className="text-xs sm:text-sm font-bold text-foreground">{cat.category}</h3>
                             </div>
                             <div className="flex flex-wrap gap-1.5 sm:gap-2">
                                 {cat.skills.map((skill) => (
                                     <span
                                         key={skill}
-                                        className="skill-pill text-muted-foreground text-[11px] sm:text-xs font-medium px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full cursor-default"
+                                        className="skill-pill text-muted-foreground text-[10px] sm:text-xs font-medium px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full cursor-default"
                                     >
                                         {skill}
                                     </span>

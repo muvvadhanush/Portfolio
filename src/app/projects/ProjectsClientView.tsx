@@ -147,7 +147,7 @@ export default function ProjectsClientView() {
                                         <div className="absolute inset-0 p-5 flex flex-col justify-between z-10">
                                             <div className="flex items-center justify-between">
                                                 <span
-                                                    className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full backdrop-blur-md"
+                                                    className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full backdrop-blur-md truncate max-w-[55%] sm:max-w-none"
                                                     style={{
                                                         background: `${project.accent}20`,
                                                         color: project.accent,
@@ -157,7 +157,7 @@ export default function ProjectsClientView() {
                                                     {project.category}
                                                 </span>
 
-                                                <div className="flex items-center gap-1.5 bg-background/80 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 text-[10px] font-semibold text-muted-foreground">
+                                                <div className="flex items-center gap-1.5 bg-background/80 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 text-[10px] font-semibold text-muted-foreground flex-shrink-0">
                                                     <VideoCameraIcon className="w-3.5 h-3.5 text-primary" />
                                                     <span>Demo Available</span>
                                                 </div>
@@ -180,13 +180,13 @@ export default function ProjectsClientView() {
                                     </div>
 
                                     {/* Content */}
-                                    <div className="p-5 sm:p-7 flex-1 flex flex-col justify-between relative z-10">
+                                    <div className="p-4 sm:p-7 flex-1 flex flex-col justify-between relative z-10">
                                         <div>
                                             <div className="flex items-start justify-between gap-3 mb-2">
-                                                <h3 className="text-lg sm:text-xl font-extrabold text-foreground group-hover:text-primary transition-colors">
+                                                <h3 className="text-base sm:text-xl font-extrabold text-foreground group-hover:text-primary transition-colors">
                                                     {project.title}
                                                 </h3>
-                                                <div className="glass-card rounded-lg px-2.5 py-1 text-center border border-border/60 flex-shrink-0">
+                                                <div className="glass-card rounded-lg px-2 sm:px-2.5 py-0.5 sm:py-1 text-center border border-border/60 flex-shrink-0">
                                                     <p className="text-[10px] sm:text-[11px] font-black" style={{ color: project.accent }}>
                                                         {project.stat.value}
                                                     </p>
@@ -201,12 +201,12 @@ export default function ProjectsClientView() {
                                             </p>
                                         </div>
 
-                                        <div className="pt-3.5 border-t border-border/30 flex flex-wrap items-center justify-between gap-3 mt-auto">
-                                            <div className="flex flex-wrap gap-1.5 max-w-[70%]">
-                                                {project.tags.slice(0, 4).map((tag) => (
+                                        <div className="pt-3.5 border-t border-border/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-auto">
+                                            <div className="flex flex-wrap gap-1.5">
+                                                {project.tags.slice(0, 3).map((tag) => (
                                                     <span
                                                         key={tag}
-                                                        className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full"
+                                                        className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
                                                         style={{
                                                             background: `${project.accent}12`,
                                                             color: project.accent,
@@ -220,7 +220,7 @@ export default function ProjectsClientView() {
 
                                             <Link
                                                 href={`/projects/${project.id}`}
-                                                className="inline-flex items-center gap-1.5 text-xs font-bold text-foreground group-hover:text-primary transition-colors ml-auto bg-muted/50 hover:bg-muted px-3.5 py-2 rounded-full border border-border/60 shadow-sm"
+                                                className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-foreground group-hover:text-primary transition-colors bg-muted/50 hover:bg-muted px-3.5 py-2 rounded-full border border-border/60 shadow-sm w-full sm:w-auto"
                                             >
                                                 View Case Study
                                                 <ArrowUpRightIcon className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

@@ -196,7 +196,7 @@ export default function HeroSection() {
                             <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-cyan-400 via-sky-500 to-indigo-500 opacity-25 blur-lg group-hover:opacity-50 transition duration-500"></div>
                             <div className="relative glass-card rounded-3xl overflow-hidden border border-primary/30 aspect-square">
                                 <img
-                                    src="/assests/image.png"
+                                    src="/assets/image.png"
                                     alt="Muvva Babu Dhanush Kumar"
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                 />

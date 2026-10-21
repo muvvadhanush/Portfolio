@@ -88,12 +88,12 @@ export default function CertificationsSection() {
                 </div>
 
                 {/* Tab filters */}
-                <div className="reveal-hidden flex gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar pb-2 sm:flex-wrap mb-6 sm:mb-10">
+                <div className="reveal-hidden flex gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar pb-2 max-w-full min-w-0 sm:flex-wrap mb-6 sm:mb-10">
                     {certGroups.map((g, i) => (
                         <button
                             key={g.group}
                             onClick={() => setActiveGroup(i)}
-                            className={`px-3 py-1.5 sm:px-5 sm:py-2 rounded-full text-[11px] sm:text-xs font-bold whitespace-nowrap transition-all duration-300 ${
+                            className={`px-3 py-1.5 sm:px-5 sm:py-2 rounded-full text-[11px] sm:text-xs font-bold whitespace-nowrap transition-all duration-300 flex-shrink-0 ${
                                 activeGroup === i
                                     ? 'bg-primary text-primary-foreground shadow-lg'
                                     : 'glass-card text-muted-foreground hover:text-foreground hover:border-primary/30'
@@ -106,7 +106,7 @@ export default function CertificationsSection() {
                 </div>
 
                 {/* Cert grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 w-full min-w-0">
                     {currentItems.map((cert, i) => (
                         <button
                             key={cert.title}

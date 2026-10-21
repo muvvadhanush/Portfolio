@@ -27,9 +27,9 @@ export default function AboutSection() {
     return (
         <section id="about" className="py-16 sm:py-24 bg-secondary/30" ref={sectionRef}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-start">
+                <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-start w-full min-w-0">
                     {/* Left: Bio */}
-                    <div className="lg:col-span-7 space-y-6 sm:space-y-8">
+                    <div className="lg:col-span-7 space-y-6 sm:space-y-8 min-w-0 w-full">
                         <div className="reveal-hidden">
                             <span className="section-label text-primary block mb-2 sm:mb-4">About Me</span>
                             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground leading-tight tracking-tight">
@@ -113,7 +113,7 @@ export default function AboutSection() {
                     </div>
 
                     {/* Right: Quick facts card */}
-                    <div className="lg:col-span-5 space-y-4 w-full">
+                    <div className="lg:col-span-5 space-y-4 w-full min-w-0">
                         <div className="reveal-hidden glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 cyan-glow" style={{ transitionDelay: '150ms' }}>
                             <h3 className="text-base sm:text-lg font-bold text-foreground mb-4 sm:mb-6">Quick Facts</h3>
                             <div className="space-y-4 sm:space-y-5">
@@ -126,12 +126,12 @@ export default function AboutSection() {
                                 ].map((item) => (
                                     <div
                                         key={item.label}
-                                        className="flex flex-col xs:flex-row xs:items-center justify-between gap-1 xs:gap-3 pb-3 sm:pb-4 border-b border-border/40 last:border-0 last:pb-0"
+                                        className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-3 pb-3 sm:pb-4 border-b border-border/40 last:border-0 last:pb-0"
                                     >
                                         <span className="section-label text-muted-foreground text-[10px] sm:text-xs flex-shrink-0">
                                             {item.label}
                                         </span>
-                                        <span className="text-xs sm:text-sm font-semibold text-foreground xs:text-right break-words">
+                                        <span className="text-xs sm:text-sm font-semibold text-foreground sm:text-right break-words">
                                             {item.value}
                                         </span>
                                     </div>

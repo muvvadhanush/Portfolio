@@ -56,7 +56,7 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Bento Grid (Top 4 Featured Projects) */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 w-full min-w-0">
                     {featuredProjects.map((project, idx) => {
                         const isLarge = project.size === 'large';
                         return (

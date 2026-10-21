@@ -107,9 +107,9 @@ export default function ExperienceSection() {
                     </h2>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
+                <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 w-full min-w-0">
                     {/* Experience Column */}
-                    <div className="space-y-4 sm:space-y-5">
+                    <div className="space-y-4 sm:space-y-5 w-full min-w-0">
                         <p className="section-label text-muted-foreground mb-3 sm:mb-6">Professional Experience</p>
                         {experiences.map((exp, i) => (
                             <div
@@ -170,7 +170,7 @@ export default function ExperienceSection() {
                     </div>
 
                     {/* Education Column */}
-                    <div className="space-y-4 sm:space-y-5">
+                    <div className="space-y-4 sm:space-y-5 w-full min-w-0">
                         <p className="section-label text-muted-foreground mb-3 sm:mb-6">Education</p>
                         {education.map((edu, i) => (
                             <div

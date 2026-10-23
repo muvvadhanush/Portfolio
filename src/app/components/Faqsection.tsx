@@ -45,11 +45,10 @@ export default function FaqSection() {
                         return (
                             <div
                                 key={index}
-                                className={`glass-card rounded-2xl sm:rounded-3xl transition-all duration-300 border ${
-                                    isOpen
+                                className={`glass-card rounded-2xl sm:rounded-3xl transition-all duration-300 border ${isOpen
                                         ? 'border-primary/50 shadow-lg shadow-primary/10 bg-muted/40'
                                         : 'border-border/60 hover:border-primary/30'
-                                } overflow-hidden`}
+                                    } overflow-hidden`}
                             >
                                 <button
                                     onClick={() => toggleFaq(index)}
@@ -58,9 +57,8 @@ export default function FaqSection() {
                                 >
                                     <div className="flex items-center gap-2.5 sm:gap-3.5 min-w-0">
                                         <div
-                                            className={`w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${
-                                                isOpen ? 'bg-primary text-primary-foreground' : 'bg-muted/60 text-primary'
-                                            }`}
+                                            className={`w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${isOpen ? 'bg-primary text-primary-foreground' : 'bg-muted/60 text-primary'
+                                                }`}
                                         >
                                             <QuestionMarkCircleIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                                         </div>
@@ -69,9 +67,8 @@ export default function FaqSection() {
                                         </h3>
                                     </div>
                                     <ChevronDownIcon
-                                        className={`w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground transition-transform duration-300 flex-shrink-0 ${
-                                            isOpen ? 'rotate-180 text-primary' : ''
-                                        }`}
+                                        className={`w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180 text-primary' : ''
+                                            }`}
                                     />
                                 </button>
 

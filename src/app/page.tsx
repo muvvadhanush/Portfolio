@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'Muvva Babu Dhanush Kumar — AI & ML Engineer Portfolio',
     description: 'Portfolio of Muvva Babu Dhanush Kumar, AI & ML Engineer specializing in RAG systems, multi-tenant chatbots, agentic workflow automation, and intelligent full-stack applications.',
     alternates: {
-        canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://muvvadhanush.com',
+        canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://dhanushmuvva.in',
     },
 };
 
@@ -29,7 +29,7 @@ export default function HomePage() {
             <ProjectsSection />
             <ExperienceSection />
             <CertificationsSection />
-            <FaqSection />
+            {/* <FaqSection /> */}
             <ContactSection />
             <Footer />
         </main>

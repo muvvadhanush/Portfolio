@@ -112,8 +112,32 @@ export default function AboutSection() {
                         </div>
                     </div>
 
-                    {/* Right: Quick facts card */}
-                    <div className="lg:col-span-5 space-y-4 w-full min-w-0">
+                    {/* Right: Portrait & Quick facts card */}
+                    <div className="lg:col-span-5 space-y-4 sm:space-y-6 w-full min-w-0">
+                        {/* Portrait Card */}
+                        <div className="reveal-hidden relative group rounded-2xl sm:rounded-3xl overflow-hidden glass-card border border-primary/25 cyan-glow" style={{ transitionDelay: '100ms' }}>
+                            <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] w-full overflow-hidden bg-muted/30">
+                                <img
+                                    src="/assets/dhanush-portrait.jpg"
+                                    alt="Muvva Babu Dhanush Kumar — AI & ML Engineer"
+                                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent pointer-events-none" />
+                                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 glass-card rounded-xl sm:rounded-2xl p-2.5 sm:p-3.5 border border-white/10 backdrop-blur-md">
+                                    <div className="flex items-center justify-between gap-2">
+                                        <div className="min-w-0">
+                                            <p className="text-xs sm:text-sm font-bold text-foreground truncate">Muvva Babu Dhanush Kumar</p>
+                                            <p className="text-[10px] sm:text-xs text-primary font-semibold truncate">AI & ML Engineer · Algoleap</p>
+                                        </div>
+                                        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold flex-shrink-0">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                                            Active
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div className="reveal-hidden glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 cyan-glow" style={{ transitionDelay: '150ms' }}>
                             <h3 className="text-base sm:text-lg font-bold text-foreground mb-4 sm:mb-6">Quick Facts</h3>
                             <div className="space-y-4 sm:space-y-5">

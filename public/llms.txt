@@ -8,7 +8,7 @@
 - **Location**: Tirupati, Andhra Pradesh, India
 - **Email**: muvvadhanush7480@gmail.com
 - **Phone**: +91 8500227480
-- **Portfolio Website**: https://muvvadhanush.com
+- **Portfolio Website**: https://dhanushmuvva.in
 - **LinkedIn**: https://www.linkedin.com/in/muvva-babu-dhanush-kumar-198b81261
 - **GitHub**: https://github.com/BabuDhanushKumar
 
@@ -47,4 +47,4 @@
 ## How to Contact & Hire
 For job opportunities, technical consulting, or enterprise AI project collaborations:
 - Email: muvvadhanush7480@gmail.com
-- Contact Form: https://muvvadhanush.com/#contact
+- Contact Form: https://dhanushmuvva.in/#contact

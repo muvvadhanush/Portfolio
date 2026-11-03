@@ -20,7 +20,7 @@ interface PageProps {
     params: Promise<{ id: string }>;
 }
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://muvvadhanush.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dhanushmuvva.in';
 
 export async function generateStaticParams() {
     return projectsData.map((project) => ({

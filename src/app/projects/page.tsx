@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import ProjectsClientView from './ProjectsClientView';
 import { projectsData } from '@/data/projects';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://muvvadhanush.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dhanushmuvva.in';
 
 export const metadata: Metadata = {
     title: 'All Projects — AI & ML Systems Showcase | Muvva Babu Dhanush Kumar',

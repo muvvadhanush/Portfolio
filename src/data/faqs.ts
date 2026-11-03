@@ -27,7 +27,7 @@ export const faqsData: FAQItem[] = [
     },
     {
         question: 'How can I contact or hire Muvva Babu Dhanush Kumar for AI engineering roles?',
-        answer: 'You can contact Muvva Babu Dhanush Kumar directly via email at muvvadhanush7480@gmail.com, connect on LinkedIn at linkedin.com/in/muvva-babu-dhanush-kumar-198b81261, or send a message using the interactive contact form at muvvadhanush.com/#contact.',
+        answer: 'You can contact Muvva Babu Dhanush Kumar directly via email at muvvadhanush7480@gmail.com, connect on LinkedIn at linkedin.com/in/muvva-babu-dhanush-kumar-198b81261, or send a message using the interactive contact form at dhanushmuvva.in/#contact.',
         category: 'Hiring',
     },
 ];

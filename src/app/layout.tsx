@@ -11,7 +11,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   display: 'swap',
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://muvvadhanush.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dhanushmuvva.in';
 
 export const viewport: Viewport = {
   width: 'device-width',

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { ArrowUpRightIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const navLinks = [
     { label: 'Home', href: '/#home', id: 'home' },
@@ -59,30 +59,30 @@ export default function Header() {
     return (
         <>
             <header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-                    scrolled ? 'glass-nav py-2.5' : 'py-4 sm:py-5 bg-transparent'
+                className={`fixed top-0 left-0 right-0 z-50 h-[72px] flex items-center transition-all duration-300 ${
+                    scrolled ? 'glass-nav' : 'bg-transparent'
                 }`}
             >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-                    {/* Logo */}
-                    <Link href="/#home" className="flex items-center gap-2.5 group">
-                        <div className="w-8 h-8 rounded-lg overflow-hidden border border-primary/40 shadow-sm animate-pulse-glow flex-shrink-0">
-                            <img src="/icon-dark.png" alt="Dhanush Logo" className="w-full h-full object-cover" />
+                <div className="site-container flex items-center justify-between gap-4">
+                    {/* Brand Logo */}
+                    <Link href="/#home" className="flex items-center gap-2.5 group min-w-0">
+                        <div className="w-8 h-8 rounded-[10px] overflow-hidden border border-primary/40 shadow-sm flex-shrink-0">
+                            <img src="/icon-dark.png" alt="Muvva Babu Dhanush Kumar Logo" className="w-full h-full object-cover" />
                         </div>
-                        <span className="font-bold text-sm tracking-tight text-foreground block">
-                            Dhanush<span className="text-primary">.</span>
+                        <span className="font-bold text-xs sm:text-sm tracking-tight text-foreground truncate max-w-[180px] sm:max-w-[230px] md:max-w-[160px] lg:max-w-none group-hover:text-primary transition-colors">
+                            Muvva Babu Dhanush Kumar
                         </span>
                     </Link>
 
-                    {/* Desktop Nav */}
-                    <nav className="hidden md:flex items-center gap-1 bg-muted/40 backdrop-blur-md border border-border/50 rounded-full px-2 py-1.5">
+                    {/* Desktop Pill Nav */}
+                    <nav className="hidden md:flex items-center gap-0.5 lg:gap-1 bg-muted/40 backdrop-blur-md border border-border/60 rounded-full px-1.5 py-1.5 flex-shrink-0">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.id}
                                 href={link.href}
-                                className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${
+                                className={`px-2.5 lg:px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${
                                     activeSection === link.id
-                                        ? 'bg-primary text-primary-foreground shadow-lg'
+                                        ? 'bg-primary text-primary-foreground shadow-md shadow-primary/20'
                                         : 'text-muted-foreground hover:text-foreground hover:bg-muted/60'
                                 }`}
                             >
@@ -94,15 +94,16 @@ export default function Header() {
                     {/* CTA */}
                     <Link
                         href="/#contact"
-                        className="hidden md:flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2 rounded-full text-xs font-bold hover:bg-accent transition-all duration-300 shadow-lg hover:shadow-primary/30"
+                        className="hidden md:inline-flex items-center gap-1.5 bg-primary text-primary-foreground px-4 lg:px-5 py-2 rounded-full text-xs font-bold hover:bg-accent transition-all duration-300 shadow-lg shadow-primary/20 flex-shrink-0"
                     >
-                        Hire Me
+                        <span>Hire Me</span>
+                        <ArrowUpRightIcon className="w-3.5 h-3.5" />
                     </Link>
 
                     {/* Mobile Menu Toggle */}
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
-                        className="md:hidden w-10 h-10 flex items-center justify-center rounded-full bg-muted/60 border border-border text-foreground hover:border-primary/40 active:scale-95 transition-all"
+                        className="md:hidden w-10 h-10 flex items-center justify-center rounded-full bg-muted/60 border border-border text-foreground hover:border-primary/40 active:scale-95 transition-all flex-shrink-0"
                         aria-label="Toggle navigation menu"
                     >
                         {menuOpen ? <XMarkIcon className="w-5 h-5 text-primary" /> : <Bars3Icon className="w-5 h-5" />}
@@ -117,17 +118,17 @@ export default function Header() {
                         className="absolute inset-0 bg-background/85 backdrop-blur-xl transition-opacity"
                         onClick={() => setMenuOpen(false)}
                     />
-                    <div className="absolute top-20 left-4 right-4 max-h-[calc(100vh-6rem)] overflow-y-auto no-scrollbar glass-card rounded-2xl p-4 sm:p-5 space-y-2 border border-primary/25 shadow-2xl cyan-glow">
-                        <div className="flex items-center justify-between pb-2 mb-2 border-b border-border/40 px-2">
+                    <div className="absolute top-20 left-4 right-4 max-h-[calc(100vh-6rem)] overflow-y-auto no-scrollbar glass-card rounded-[20px] p-4 sm:p-5 space-y-2 border border-primary/25 shadow-2xl cyan-glow">
+                        <div className="flex items-center justify-between pb-2 mb-2 border-b border-border/40 px-2 gap-2">
                             <span className="section-label text-primary text-[10px]">Navigation</span>
-                            <span className="text-[10px] text-muted-foreground font-mono">Dhanush.</span>
+                            <span className="text-[10px] text-muted-foreground font-mono truncate">Muvva Babu Dhanush Kumar</span>
                         </div>
                         {navLinks.map((link) => (
                             <Link
                                 key={link.id}
                                 href={link.href}
                                 onClick={() => setMenuOpen(false)}
-                                className={`block px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                                className={`block px-4 py-3 rounded-[14px] text-sm font-semibold transition-all duration-200 ${
                                     activeSection === link.id
                                         ? 'bg-primary/20 text-primary border border-primary/30'
                                         : 'text-muted-foreground hover:text-foreground hover:bg-muted/50 active:bg-muted/70'
@@ -140,9 +141,10 @@ export default function Header() {
                             <Link
                                 href="/#contact"
                                 onClick={() => setMenuOpen(false)}
-                                className="block text-center bg-primary text-primary-foreground px-4 py-3.5 rounded-xl text-sm font-bold shadow-lg hover:bg-accent active:scale-[0.98] transition-all"
+                                className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-4 py-3.5 rounded-full text-sm font-bold shadow-lg hover:bg-accent active:scale-[0.98] transition-all"
                             >
-                                Hire Me
+                                <span>Hire Me</span>
+                                <ArrowUpRightIcon className="w-4 h-4" />
                             </Link>
                         </div>
                     </div>

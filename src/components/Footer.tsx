@@ -1,36 +1,46 @@
 import React from 'react';
+import Link from 'next/link';
+
+const footerLinks = [
+    { label: 'Home', href: '/#home' },
+    { label: 'About', href: '/#about' },
+    { label: 'Skills', href: '/#skills' },
+    { label: 'Projects', href: '/#projects' },
+    { label: 'Experience', href: '/#experience' },
+    { label: 'Contact', href: '/#contact' },
+];
 
 export default function Footer() {
     return (
         <footer className="border-t border-border/50 py-8 bg-background">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-                <p className="text-muted-foreground text-xs sm:text-sm font-medium">
-                    © 2025 Muvva Babu Dhanush Kumar. All rights reserved.
+            <div className="site-container flex flex-col lg:flex-row items-center justify-between gap-5 text-center lg:text-left">
+                {/* Brand */}
+                <Link href="/#home" className="flex items-center gap-2.5 group">
+                    <div className="w-7 h-7 rounded-lg overflow-hidden border border-primary/40 flex-shrink-0">
+                        <img src="/icon-dark.png" alt="Muvva Babu Dhanush Kumar Logo" className="w-full h-full object-cover" />
+                    </div>
+                    <span className="font-bold text-xs sm:text-sm tracking-tight text-foreground group-hover:text-primary transition-colors">
+                        Muvva Babu Dhanush Kumar
+                    </span>
+                </Link>
+
+                {/* Center Nav */}
+                <nav className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+                    {footerLinks.map((link) => (
+                        <Link
+                            key={link.label}
+                            href={link.href}
+                            className="text-muted-foreground hover:text-primary transition-colors text-xs font-medium"
+                        >
+                            {link.label}
+                        </Link>
+                    ))}
+                </nav>
+
+                {/* Copyright */}
+                <p className="text-muted-foreground text-xs font-medium">
+                    © {new Date().getFullYear()} Muvva Babu Dhanush Kumar. All rights reserved.
                 </p>
-                <div className="flex items-center gap-6">
-                    <a
-                        href="https://www.linkedin.com/in/muvva-babu-dhanush-kumar-198b81261"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
-                    >
-                        LinkedIn
-                    </a>
-                    <a
-                        href="https://github.com/BabuDhanushKumar"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
-                    >
-                        GitHub
-                    </a>
-                    <a
-                        href="mailto:dhanushmuvva@gmail.com"
-                        className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium"
-                    >
-                        Email
-                    </a>
-                </div>
             </div>
         </footer>
     );

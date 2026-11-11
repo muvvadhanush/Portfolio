@@ -1,56 +1,55 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import {
+    CpuChipIcon,
+    CodeBracketIcon,
+    ServerStackIcon,
+    CircleStackIcon,
+    WindowIcon,
+    CloudIcon,
+    UserGroupIcon,
+} from '@heroicons/react/24/outline';
 
-const skillCategories = [
+const technicalCategories = [
     {
         category: 'AI & Machine Learning',
-        icon: '◈',
-        color: 'text-primary',
-        skills: ['Generative AI', 'Hybrid RAG', 'Multi-Agent', 'Prompt Engineering', 'Azure OpenAI', 'pgvector', 'Scikit-learn', 'PyTorch'],
+        icon: CpuChipIcon,
+        skills: ['Generative AI', 'Hybrid RAG', 'Multi-Agent', 'Prompt Engineering', 'Azure OpenAI', 'pgvector', 'PyTorch', 'Scikit-learn'],
     },
     {
         category: 'Languages & Core',
-        icon: '{ }',
-        color: 'text-cyan-300',
-        skills: ['Python', 'JavaScript', 'SQL', 'HTML5', 'CSS3', 'TypeScript'],
+        icon: CodeBracketIcon,
+        skills: ['Python', 'JavaScript', 'TypeScript', 'SQL', 'HTML5', 'CSS3'],
     },
     {
         category: 'Backend & APIs',
-        icon: '⟳',
-        color: 'text-violet-400',
+        icon: ServerStackIcon,
         skills: ['Node.js', 'Express', 'Python (Flask)', 'FastAPI', 'REST APIs', 'JWT Security'],
     },
     {
-        category: 'Databases & Vector Stores',
-        icon: '⬡',
-        color: 'text-blue-400',
+        category: 'Databases & Vector',
+        icon: CircleStackIcon,
         skills: ['PostgreSQL', 'pgvector', 'MySQL', 'Neon Postgres', 'Vector DBs'],
     },
     {
         category: 'Frontend Development',
-        icon: '⚡',
-        color: 'text-sky-400',
+        icon: WindowIcon,
         skills: ['React.js', 'Next.js 15', 'Tailwind CSS', 'Redux', 'Responsive UI'],
     },
     {
-        category: 'Data Quality & Analytics',
-        icon: '∑',
-        color: 'text-emerald-400',
-        skills: ['Data Cleaning', 'Data Modeling', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn'],
+        category: 'DevOps & Analytics',
+        icon: CloudIcon,
+        skills: ['Docker', 'AWS', 'Git & GitHub', 'Vercel', 'Pandas', 'NumPy', 'Data Modeling'],
     },
-    {
-        category: 'DevOps & Tools',
-        icon: '☁',
-        color: 'text-orange-400',
-        skills: ['DevOps', 'Docker', 'AWS', 'Git & GitHub', 'MQTT', 'Vercel'],
-    },
-    {
-        category: 'Soft Skills & Leadership',
-        icon: '◇',
-        color: 'text-pink-400',
-        skills: ['Problem-Solving', 'Communication', 'Attention to Detail', 'Adaptability', 'Agile Teamwork'],
-    },
+];
+
+const softSkills = [
+    'Problem-Solving',
+    'Communication',
+    'Attention to Detail',
+    'Adaptability',
+    'Agile Teamwork',
 ];
 
 export default function SkillsSection() {
@@ -74,44 +73,76 @@ export default function SkillsSection() {
     }, []);
 
     return (
-        <section id="skills" className="py-16 sm:py-24" ref={sectionRef}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                <div className="reveal-hidden mb-8 sm:mb-16">
-                    <span className="section-label text-primary block mb-2 sm:mb-4">Technical Stack</span>
-                    <div className="flex flex-col md:flex-row md:items-end gap-3 sm:gap-6 justify-between">
-                        <h2 className="text-3xl sm:text-5xl font-extrabold text-foreground tracking-tight leading-tight">
-                            Skills &{' '}
-                            <span className="text-gradient-cyan">Expertise</span>
+        <section id="skills" className="py-14 sm:py-20 lg:py-24 scroll-mt-20" ref={sectionRef}>
+            <div className="site-container">
+                {/* Header */}
+                <div className="reveal-hidden mb-10 lg:mb-12 flex flex-col md:flex-row md:items-end gap-4 justify-between">
+                    <div>
+                        <div className="inline-flex items-center gap-2 mb-3">
+                            <span className="w-2 h-2 rounded-full bg-primary" />
+                            <span className="section-label text-primary font-bold tracking-[0.2em] text-[11px] uppercase">
+                                Skills &amp; Expertise
+                            </span>
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-[1.12]">
+                            Skills &amp; <span className="text-gradient-cyan">Expertise</span>
                         </h2>
-                        <p className="text-muted-foreground max-w-sm text-xs sm:text-sm leading-relaxed">
-                            A curated stack built through real-world AI applications, internships, and production deployments.
-                        </p>
                     </div>
+                    <p className="text-muted-foreground max-w-md text-xs sm:text-sm leading-relaxed">
+                        A curated skill set built for real-world AI applications, enterprise workflows, and scalable production systems.
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5">
-                    {skillCategories.map((cat, i) => (
-                        <div
-                            key={cat.category}
-                            className="reveal-hidden glass-card rounded-2xl p-4 sm:p-6 card-hover"
-                            style={{ transitionDelay: `${i * 50}ms` }}
-                        >
-                            <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-5">
-                                <span className={`text-lg sm:text-2xl font-black ${cat.color}`}>{cat.icon}</span>
-                                <h3 className="text-xs sm:text-sm font-bold text-foreground">{cat.category}</h3>
+                {/* 3 x 2 Technical Domain Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full min-w-0">
+                    {technicalCategories.map((cat, i) => {
+                        const IconComp = cat.icon;
+                        return (
+                            <div
+                                key={cat.category}
+                                className="reveal-hidden glass-card rounded-[20px] p-5 sm:p-6 border border-border/60 card-hover"
+                                style={{ transitionDelay: `${i * 50}ms` }}
+                            >
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="w-9 h-9 rounded-[12px] bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+                                        <IconComp className="w-4 h-4 text-primary" />
+                                    </div>
+                                    <h3 className="text-sm sm:text-base font-bold text-foreground">{cat.category}</h3>
+                                </div>
+                                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                                    {cat.skills.map((skill) => (
+                                        <span
+                                            key={skill}
+                                            className="skill-pill text-muted-foreground text-[11px] font-medium px-2.5 py-1 rounded-full cursor-default"
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
-                            <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                                {cat.skills.map((skill) => (
-                                    <span
-                                        key={skill}
-                                        className="skill-pill text-muted-foreground text-[10px] sm:text-xs font-medium px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full cursor-default"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
+                        );
+                    })}
+                </div>
+
+                {/* Soft Skills Strip */}
+                <div
+                    className="reveal-hidden mt-5 glass-card rounded-[20px] px-5 py-3.5 sm:px-6 sm:py-4 border border-border/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                    style={{ transitionDelay: '250ms' }}
+                >
+                    <div className="flex items-center gap-2.5 flex-shrink-0">
+                        <UserGroupIcon className="w-4 h-4 text-primary" />
+                        <span className="text-xs font-bold uppercase tracking-wider text-foreground">Soft Skills</span>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-medium text-muted-foreground">
+                        {softSkills.map((item, idx) => (
+                            <React.Fragment key={item}>
+                                <span className="text-foreground/90">{item}</span>
+                                {idx < softSkills.length - 1 && (
+                                    <span className="text-primary/60" aria-hidden="true">·</span>
+                                )}
+                            </React.Fragment>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

@@ -54,7 +54,7 @@ export default function ProjectsClientView() {
                 />
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-32 pb-24 relative z-10">
+            <div className="site-container pt-24 sm:pt-32 pb-24 relative z-10">
                 {/* Back Button */}
                 <Link
                     href="/#projects"

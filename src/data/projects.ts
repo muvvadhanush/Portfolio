@@ -146,7 +146,6 @@ export const projectsData: Project[] = [
         stat: { value: 'GPT-4o + Llama-3', label: 'Dual Routing Engine' },
         links: {
             github: 'https://github.com/BabuDhanushKumar',
-            live: 'https://dhanushmuv7480.builtwithrocket.new',
         },
     },
     {
@@ -187,7 +186,6 @@ export const projectsData: Project[] = [
         stat: { value: '< 5s', label: 'Search Latency' },
         links: {
             github: 'https://github.com/BabuDhanushKumar',
-            live: 'https://dhanushmuv7480.builtwithrocket.new',
         },
     },
     {
@@ -228,7 +226,6 @@ export const projectsData: Project[] = [
         stat: { value: 'Automated', label: 'PDF Scoring Engine' },
         links: {
             github: 'https://github.com/BabuDhanushKumar',
-            live: 'https://dhanushmuv7480.builtwithrocket.new',
         },
     },
     {
@@ -269,7 +266,6 @@ export const projectsData: Project[] = [
         stat: { value: 'Role-Based', label: 'Workflow Engine' },
         links: {
             github: 'https://github.com/BabuDhanushKumar',
-            live: 'https://dhanushmuv7480.builtwithrocket.new',
         },
     },
     {
@@ -349,7 +345,6 @@ export const projectsData: Project[] = [
         stat: { value: '98/100', label: 'Lighthouse Score' },
         links: {
             github: 'https://github.com/BabuDhanushKumar',
-            live: 'https://dhanushmuv7480.builtwithrocket.new',
         },
     },
     {

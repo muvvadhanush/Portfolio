@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+const Footer = dynamic(() => import('@/components/Footer'));
 import { projectsData } from '@/data/projects';
 import {
     ArrowLeftIcon,

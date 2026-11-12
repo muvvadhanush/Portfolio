@@ -26,6 +26,7 @@ export default function ProjectMediaSection({ media, title, accent, icon }: Proj
                     <div className="relative aspect-video w-full bg-black/90 flex items-center justify-center overflow-hidden">
                         <video
                             controls
+                            preload="metadata"
                             poster={media?.thumbnail}
                             className="w-full h-full object-contain"
                             onPlay={() => setIsPlaying(true)}
@@ -97,6 +98,8 @@ export default function ProjectMediaSection({ media, title, accent, icon }: Proj
                                 <img
                                     src={imgUrl}
                                     alt={`${title} screenshot ${idx + 1}`}
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
                                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-2 text-center">

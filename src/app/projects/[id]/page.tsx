@@ -1,11 +1,12 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getProjectById, projectsData } from '@/data/projects';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import ProjectMediaSection from './ProjectMediaSection';
+const Footer = dynamic(() => import('@/components/Footer'));
+const ProjectMediaSection = dynamic(() => import('./ProjectMediaSection'));
 import {
     ArrowLeftIcon,
     ArrowUpRightIcon,

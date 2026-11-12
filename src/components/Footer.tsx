@@ -17,7 +17,7 @@ export default function Footer() {
                 {/* Brand */}
                 <Link href="/#home" className="flex items-center gap-2.5 group">
                     <div className="w-7 h-7 rounded-lg overflow-hidden border border-primary/40 flex-shrink-0">
-                        <img src="/icon-dark.png" alt="Muvva Babu Dhanush Kumar Logo" className="w-full h-full object-cover" />
+                        <img src="/icon-dark.png" alt="Muvva Babu Dhanush Kumar Logo" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                     </div>
                     <span className="font-bold text-xs sm:text-sm tracking-tight text-foreground group-hover:text-primary transition-colors">
                         Muvva Babu Dhanush Kumar

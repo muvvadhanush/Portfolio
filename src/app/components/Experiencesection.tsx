@@ -8,7 +8,7 @@ const experiences = [
     {
         role: 'Junior Engineer',
         company: 'Algoleap Technologies',
-        period: 'Jan 2026 – Present',
+        period: 'Sep 2026 – Present',
         description:
             'Building enterprise and presales AI systems across agentic tax automation, AI document gap analysis, and multi-tenant RAG conversational platforms using Azure OpenAI, Python, Node.js, and PostgreSQL.',
         logo: 'https://dhanushmuvva.in/LOGOS/algoleap.jpg',

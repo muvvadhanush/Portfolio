@@ -170,6 +170,9 @@ export default function HeroSection() {
                                 <img
                                     src="/Dhanush.png"
                                     alt="Muvva Babu Dhanush Kumar — AI & ML Engineer"
+                                    loading="eager"
+                                    fetchPriority="high"
+                                    decoding="async"
                                     className="w-full h-full object-cover object-top"
                                 />
                                 {/* Soft Bottom Vignette for Clean Contrast */}

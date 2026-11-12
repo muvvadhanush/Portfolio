@@ -1,15 +1,16 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import HeroSection from './components/Herosection';
-import AboutSection from './components/Aboutsection';
-import SkillsSection from './components/Skillssection';
-import ProjectsSection from './components/Projectssection';
-import ExperienceSection from './components/Experiencesection';
-import CertificationsSection from './components/Certificatesection';
-import FaqSection from './components/Faqsection';
-import ContactSection from './components/Contactsection';
+
+const AboutSection = dynamic(() => import('./components/Aboutsection'));
+const SkillsSection = dynamic(() => import('./components/Skillssection'));
+const ProjectsSection = dynamic(() => import('./components/Projectssection'));
+const ExperienceSection = dynamic(() => import('./components/Experiencesection'));
+const CertificationsSection = dynamic(() => import('./components/Certificatesection'));
+const ContactSection = dynamic(() => import('./components/Contactsection'));
+const Footer = dynamic(() => import('@/components/Footer'));
 
 export const metadata: Metadata = {
     title: 'Muvva Babu Dhanush Kumar — AI & ML Engineer Portfolio',
